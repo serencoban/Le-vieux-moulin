@@ -1,0 +1,20 @@
+:root {
+  --font-base: 'Poppins', Helvetica, Arial, sans-serif;
+}
+/* POPPINS (500) */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/wp-content/themes/client/resources/fonts/Poppins-Regular.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* POPPINS (300) */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/wp-content/themes/client/resources/fonts/Poppins-Thin.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
