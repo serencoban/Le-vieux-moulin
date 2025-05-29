@@ -1,11 +1,31 @@
 {
   "wp-content/themes/client/resources/css/styles.scss": {
-    "file": "assets/css-BTPvufyz.css",
+    "file": "assets/css-DKUeGqkw.css",
     "src": "wp-content/themes/client/resources/css/styles.scss",
     "isEntry": true
   },
+  "wp-content/themes/client/resources/fonts/Poppins-Bold.ttf": {
+    "file": "assets/Poppins-Bold-BXhprD-G.ttf",
+    "src": "wp-content/themes/client/resources/fonts/Poppins-Bold.ttf"
+  },
+  "wp-content/themes/client/resources/fonts/Poppins-Regular.ttf": {
+    "file": "assets/Poppins-Regular-D1nUktjN.ttf",
+    "src": "wp-content/themes/client/resources/fonts/Poppins-Regular.ttf"
+  },
+  "wp-content/themes/client/resources/fonts/Poppins-SemiBold.ttf": {
+    "file": "assets/Poppins-SemiBold-t2nuwk4E.ttf",
+    "src": "wp-content/themes/client/resources/fonts/Poppins-SemiBold.ttf"
+  },
+  "wp-content/themes/client/resources/img/header_img.jpg": {
+    "file": "assets/header_img-Ca6urDQA.jpg",
+    "src": "wp-content/themes/client/resources/img/header_img.jpg"
+  },
+  "wp-content/themes/client/resources/img/soutenir-header.jpg": {
+    "file": "assets/soutenir-header-cts8MIVy.jpg",
+    "src": "wp-content/themes/client/resources/img/soutenir-header.jpg"
+  },
   "wp-content/themes/client/resources/js/main.js": {
-    "file": "assets/js-Bzsld0tX.js",
+    "file": "assets/js-CgG23FNB.js",
     "name": "js",
     "src": "wp-content/themes/client/resources/js/main.js",
     "isEntry": true

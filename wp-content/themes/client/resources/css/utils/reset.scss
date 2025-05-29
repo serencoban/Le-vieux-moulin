@@ -1,8 +1,17 @@
+@import "../settings/breakpoints";
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
-
+body{
+  font-family: var(--font-base), sans-serif;
+  color: var(--darkblue);
+  overflow-x: hidden;
+  padding: 0 24px ;
+  @include desktop{
+    padding: 0 52px ;
+  }
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -17,7 +26,6 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
-  padding: 0;
   border: 0;
   font-size: 100%;
   font: inherit;
@@ -45,4 +53,77 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+a{
+  text-decoration: none;
+  color: var(--dark-blue);
+  border-radius: 32px;
+
+}
+.hidden{
+  display: none;
+}
+
+.main_title{
+  font-size: 36px;
+  color: var(--white);
+  font-weight: 600;
+  @include desktop{
+    font-size: 64px;
+  }
+}
+h2{
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  @include desktop{
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+}
+h3{
+  font-size: 24px;
+  font-weight: 800;
+  @include desktop{
+    font-size: 32px;
+  }
+}
+h4{
+  font-size: 20px;
+  font-weight: 800;
+  @include desktop{
+    font-size: 28px;
+  }
+}
+
+p{
+  font-size: 14px;
+  @include desktop{
+    font-size: 16px;
+  }
+}
+
+.btn {
+  background-color: var(--blue);
+  color: var(--dark-blue);
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 1rem;
+
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: var(--blue2);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  @include desktop {
+
+    border-radius: 32px;
+  }
 }

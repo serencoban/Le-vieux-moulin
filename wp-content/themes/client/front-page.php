@@ -1,7 +1,9 @@
+<?php /* Template Name: Page "Accueil" */ ?>
+
 <?php get_header(); ?>
     <section class="header">
         <div class="header_container">
-            <h1>Le Vieux Moulin</h1>
+            <h2 class="main_title"><?php echo get_field('vm_title') ?></h2>
             <div class="underline">
                 <svg xmlns="http://www.w3.org/2000/svg" width="510" height="18" viewBox="0 0 510 18" fill="none">
                     <path d="M2 8.33118C10.1432 3.64392 31.8042 -2.9986 53.3024 7.92942C74.8005 18.8574 92.1863 12.7506 98.1919 8.33114C108.575 4.04564 131.966 -2.03441 142.471 7.92937C152.976 17.8932 175.96 13.5541 186.139 10.1391C193.264 5.71966 211.362 -0.708581 226.753 8.93379C242.144 18.5762 267.368 12.5497 278.056 8.33114C289.558 3.71084 315.189 -2.75758 325.693 8.33114C336.198 19.4199 358.572 14.1567 368.445 10.1391C376.181 5.18398 395.99 -1.8737 413.335 9.53644C430.68 20.9466 452.524 14.6924 461.278 10.1391C469.625 6.18839 490.655 0.777951 508 10.7417"
@@ -11,25 +13,38 @@
                           class="draw-path"/>
                 </svg>
             </div>
-            <p>Service résidentielle générale qui vous offre un foyer chaleureux.</p>
-            <a href="">Nous soutenir</a>
+            <p><?php echo get_field('main_description') ?></p>
+            <a class="btn" href="">Nous soutenir</a>
         </div>
     </section>
     <section class="maisons_container">
         <div class="info_maisons">
             <h2>Découvrez nos lieux de vies</h2>
-            <p>
-                Notre SRG (Service Résidentiel Général) accueille 33 enfants de 0 à 18 ans,
-                répartis entre deux maisons : le “Vieux Moulin” et “Edelweiss”.
-                Ces enfants, confrontés à des difficultés familiales, arrivent avec un vécu qu’il faut soutenir et alléger.
-            </p>
+            <p><?php echo get_field('description_maison') ?></p>
         </div>
         <div class="maisons_cards">
             <div class="maison vm">
                 <span>Le Vieux Moulin</span>
+                <a href="<?php echo get_permalink(get_page_by_path('nos-foyers')) ?>">
+                <?php
+                    $image = get_field('vm');
+                    if ($image) {
+                        echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
+                    }
+                    ?>
+                </a>
             </div>
             <div class="maison edelweiss">
-                <span>Edelweiss</span>
+                    <span>Edelweiss</span>
+                <a href="<?php echo get_permalink(get_page_by_path('nos-foyers'))?>">
+
+                <?php
+                        $image = get_field('edelweiss');
+                        if ($image) {
+                            echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
+                        }
+                        ?>
+                    </a>
             </div>
         </div>
     </section>
@@ -38,55 +53,76 @@
         <div class="accueil-cards">
             <div class="accueil-card">
                 <div class="card-header">
-                    <img src="src/img/materiel.png" alt="Icone Matériel" class="icon" />
+                    <img src="wp-content/themes/client/resources/img/materiel.png" alt="Icone Matériel" class="icon" />
                     <h3 class="highlight-title">Matériel</h3>
                 </div>
-                <p>Assurer un environnement de vie sûr, confortable et adapté au bien-être des enfants.</p>
+                <p><?php echo get_field('materiel') ?></p>
             </div>
             <div class="accueil-card">
                 <div class="card-header">
-                    <img src="src/img/educatif.png" alt="Icone Educatif" class="icon" />
+                    <img src="wp-content/themes/client/resources/img/educatif.png" alt="Icone Educatif" class="icon" />
                     <h3 class="highlight-title">Educatif</h3>
                 </div>
-                <p>Favoriser le développement scolaire des enfants par un encadrement bienveillant et des activités adaptées.</p>
+                <p><?php echo get_field('educatif') ?></p>
             </div>
             <div class="accueil-card">
                 <div class="card-header">
-                    <img src="src/img/psycho.png" alt="Icone Psychologique" class="icon" />
+                    <img src="wp-content/themes/client/resources/img/psycho.png" alt="Icone Psychologique" class="icon" />
                     <h3 class="highlight-title">Psychologique</h3>
                 </div>
-                <p>Soutenir les enfants en favorisant leur bien-être émotionnel, leur estime de soi et leur reconstruction.</p>
+                <p><?php echo get_field('psychologique') ?></p>
             </div>
         </div>
     </section>
 
-    <section class="projet-container">
-        <div class="projets-grid">
-            <div class="projets-header">
-                <h2>Les projets pour nos enfants</h2>
-                <p>Des projets concrets pour améliorer leur lieu de vie.</p>
-                <a href="">Découvrez tous nos projets</a>
-            </div>
-
-            <article class="projet isolation">
-                <h3>Isolation du bâtiment</h3>
-                <p>La vie en communauté peut être difficile, la chambre est un refuge essentiel, un lieu de sécurité.</p>
-                <a href="">→</a>
-            </article>
-
-            <article class="projet jardin">
-                <h3>Aménagement du jardin</h3>
-                <p>Le jeu est une réelle interface d’observation des compétences de l’enfants.</p>
-                <a href="">→</a>
-            </article>
-
-            <article class="projet renovation">
-                <h3>Rénover les chambres</h3>
-                <p>La vie en communauté peut être difficile, la chambre est un refuge essentiel, un lieu de sécurité.</p>
-                <a href="">→</a>
-            </article>
+<section class="projet-container">
+    <div class="projets-grid">
+        <div class="projets-header from-left">
+            <h2>Les projets pour nos enfants</h2>
+            <p>Des projets concrets pour améliorer leur lieu de vie.</p>
+            <a class="btn" href="">Découvrez tous nos projets</a>
         </div>
-    </section>
+
+        <article class="projet isolation from-left">
+            <a href=""></a>
+            <div>
+                <div>
+                    <h3>Isolation du bâtiment</h3>
+                    <p>La vie en communauté peut être difficile, la chambre est un refuge essentiel, un lieu de sécurité.</p>
+                </div>
+                <figure>
+                    <img class="project_img" src="https://images.unsplash.com/photo-1582719188393-bb71ca45dbb9?w=800&h=600&fit=crop" alt="Isolation du bâtiment">
+                </figure>
+            </div>
+        </article>
+
+        <article class="projet jardin from-right">
+            <a href=""></a>
+            <div>
+                <div>
+                    <h3>Aménagement du jardin</h3>
+                    <p>Le jeu est une réelle interface d'observation des compétences de l'enfants.</p>
+                </div>
+                <figure>
+                    <img class="project_img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop" alt="Aménagement du jardin">
+                </figure>
+            </div>
+        </article>
+
+        <article class="projet renovation from-right">
+            <a href=""></a>
+            <div>
+                <div>
+                    <h3>Rénover les chambres</h3>
+                    <p>La vie en communauté peut être difficile, la chambre est un refuge essentiel, un lieu de sécurité.</p>
+                </div>
+                <figure>
+                    <img class="project_img" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop" alt="Rénover les chambres">
+                </figure>
+            </div>
+        </article>
+    </div>
+</section>
 
     <section class="news">
         <div class="news_container">
@@ -96,7 +132,7 @@
                     <p>Name</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris  porttitor venenatis pretium. Praesent sit amet mi ac felis ullamcorper  scelerisque. </p>
                 </div>
-                <a href="">Voir toutes les actualités</a>
+                <a class="btn" href="">Voir toutes les actualités</a>
             </div>
         </div>
         <div class="moulin">
@@ -122,21 +158,77 @@
             </svg>
         </div>
     </section>
-    <section>
-        <h2>FAQ</h2>
-        <div>
-            <a href="doc.pdf">Ressources téléchargeables</a>
 
-        </div>
-        <div>
-            <a href="doc.pdf">Ressources téléchargeables</a>
+<section class="faq-section">
+    <div class="faq-header">
+        <h2 class="faq-title">FAQ</h2>
+        <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" width="510" height="18" viewBox="0 0 510 18" fill="none">
+            <path d="M2 8.33118C10.1432 3.64392 31.8042 -2.9986 53.3024 7.92942C74.8005 18.8574 92.1863 12.7506 98.1919 8.33114C108.575 4.04564 131.966 -2.03441 142.471 7.92937C152.976 17.8932 175.96 13.5541 186.139 10.1391C193.264 5.71966 211.362 -0.708581 226.753 8.93379C242.144 18.5762 267.368 12.5497 278.056 8.33114C289.558 3.71084 315.189 -2.75758 325.693 8.33114C336.198 19.4199 358.572 14.1567 368.445 10.1391C376.181 5.18398 395.99 -1.8737 413.335 9.53644C430.68 20.9466 452.524 14.6924 461.278 10.1391C469.625 6.18839 490.655 0.777951 508 10.7417"
+                  stroke="#A9CAEF"
+                  stroke-width="3.5"
+                  stroke-linecap="round"/>
+        </svg>
+    </div>
 
+    <div class="accordion-container">
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span class="accordion-title">Ressources téléchargeables</span>
+                <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <a href="doc.pdf" class="download-link">
+                        <svg class="download-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Télécharger le document PDF
+                    </a>
+                </div>
+            </div>
         </div>
-        <div>
-            <a href="doc.pdf">Ressources téléchargeables</a>
 
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span class="accordion-title">Ressources téléchargeables</span>
+                <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <a href="doc.pdf" class="download-link">
+                        <svg class="download-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Télécharger le guide complet
+                    </a>
+                </div>
+            </div>
         </div>
-    </section>
+
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span class="accordion-title">Ressources téléchargeables</span>
+                <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <a href="doc.pdf" class="download-link">
+                        <svg class="download-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Télécharger les ressources additionnelles
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?php get_footer(); ?>
 

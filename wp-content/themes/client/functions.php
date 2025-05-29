@@ -154,81 +154,29 @@ add_theme_support('post-thumbnails', ['foyers']);
 // Enregistrer de nouveaux "types de contenu", qui seront stockés dans la table
 // "wp_posts", avec un identifiant de type spécifique dans la colonne "post_type":
 
-//register_post_type('foyers', [
-//  'label' => 'Foyers',
-//  'description' => 'Les différents foyers du Vieux Moulin',
-//  'menu_position' => 6,
-//  'menu_icon' => 'dashicons-building',
-//  'public' => true,
-//  'has_archive' => true,
-//  'rewrite' => ['slug' => 'foyers',],
-//  'supports' => ['title', 'excerpt', 'editor', 'thumbnail'],
-//]);
-
-
-
-/*
-register_taxonomy('travel_type', ['travel'], [
-  'labels' => [
-    'name' => 'Types de voyage',
-    'singular_name' => 'Type de voyage',
-    'menu_name' => 'Types de voyage',
-    'all_items' => 'Tous les types',
-    'edit_item' => 'Modifier le type',
-    'view_item' => 'Voir le type',
-    'update_item' => 'Mettre à jour le type',
-    'add_new_item' => 'Ajouter un nouveau type',
-    'new_item_name' => 'Nom du nouveau type',
-    'search_items' => 'Rechercher un type',
-    'not_found' => 'Aucun type trouvé',
-  ],
-  'description' => 'Types de voyages',
-  'public' => true,
-  'hierarchical' => true,
-  'show_ui' => true,
-  'show_admin_column' => true,
-  'show_tagcloud' => false,
-  'rewrite' => ['slug' => 'type-voyage'],
-]);
-*/
-
-// Ajouter des "catégories" (taxonomies) sur ces post_types :
-
-register_taxonomy('travel_type', ['travel'], [
-  'labels' => [
-    'name' => __hepl('Les types de voyages'),
-    'singular' => __hepl('Type de voyage')
-  ],
-  'description' => 'Types de voyages',
-  'public' => true,
-  'hierarchical' => true,
-  'show_ui' => true,
-  'show_admin_column' => true,
-  'show_tagcloud' => false,
-  'rewrite' => ['slug' => __hepl('type-de-voyage')],
-],
-);
-
-register_taxonomy('course', ['recipe'], [
-  'labels' => [
-    'name' => 'Services',
-    'singular_name' => 'Service'
-  ],
-  'description' => 'À quel moment du repas ce plat intervient-il ?',
-  'public' => true,
-  'hierarchical' => true,
-  'show_tagcloud' => false,
+register_post_type('projets', [
+    'label' => 'Projets',
+    'description' => 'Les projets',
+    'menu_position' => 7,
+    'menu_icon' => 'dashicons-hammer',
+    'public' => true,
+    'has_archive' => false,
+    'rewrite' => [
+        'slug' => 'projets',
+    ],
+    'supports' => ['title', 'editor', 'thumbnail'],
 ]);
 
-register_taxonomy('diet', ['recipe'], [
-  'labels' => [
-    'name' => 'Régimes alimentaires',
-    'singular_name' => 'Régime'
-  ],
-  'description' => 'À quel type de régime appartient cette recette ?',
-  'public' => true,
-  'hierarchical' => true,
-  'show_tagcloud' => false,
+register_taxonomy('type_work', ['work'], [
+    'labels' => [
+        'name' => 'Work type',
+        'singular_name' => 'Work type'
+    ],
+    'description' => 'Project type',
+    'public' => true,
+    'hierarchical' => true,
+    'show_tagcloud' => false,
+    'rewrite' => ['slug' => 'project-type'],
 ]);
 
 // Paramétrer des tailles d'images pour le générateur de thumbnails de Wordpress :

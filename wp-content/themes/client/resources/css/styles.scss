@@ -4,9 +4,10 @@
 @use 'settings/colors';
 @use 'settings/fonts';
 
-@use 'general/general';
+@use 'general/footer';
 @use 'general/header';
-@use 'general/navigation';
-@use 'general/languages';
+@use 'general/soutenir';
+@use 'general/contact';
 @use 'general/front-page';
+@use 'general/foyer';
 
