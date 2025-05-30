@@ -1,9 +1,9 @@
 @import "../settings/breakpoints";
 
 header {
+  font-family: var(--font-base);
   position: relative;
   font-weight: 600;
-
 
   .menu-desktop {
     display: none;
@@ -141,12 +141,12 @@ header {
 }
 
 .logo {
+  margin-top: 14px;
   padding-left: 32px;
-  width: 50px;
+  width: 80px;
 
   @include desktop {
-    padding-left: 100px;
-    width: 70px;
+    margin-top: 24px;
   }
 
 }

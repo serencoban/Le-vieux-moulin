@@ -1,6 +1,6 @@
 {
   "wp-content/themes/client/resources/css/styles.scss": {
-    "file": "assets/css-DKUeGqkw.css",
+    "file": "assets/css-BUsMSOfV.css",
     "src": "wp-content/themes/client/resources/css/styles.scss",
     "isEntry": true
   },
@@ -20,12 +20,16 @@
     "file": "assets/header_img-Ca6urDQA.jpg",
     "src": "wp-content/themes/client/resources/img/header_img.jpg"
   },
+  "wp-content/themes/client/resources/img/maps.png": {
+    "file": "assets/maps-BpXqjtHa.png",
+    "src": "wp-content/themes/client/resources/img/maps.png"
+  },
   "wp-content/themes/client/resources/img/soutenir-header.jpg": {
     "file": "assets/soutenir-header-cts8MIVy.jpg",
     "src": "wp-content/themes/client/resources/img/soutenir-header.jpg"
   },
   "wp-content/themes/client/resources/js/main.js": {
-    "file": "assets/js-CgG23FNB.js",
+    "file": "assets/js-CwjsQQNo.js",
     "name": "js",
     "src": "wp-content/themes/client/resources/js/main.js",
     "isEntry": true

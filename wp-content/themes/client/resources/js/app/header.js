@@ -95,3 +95,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
+
+const cards = document.querySelectorAll('.activity-card');
+const indicators = document.querySelectorAll('.indicator');
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const index = [...cards].indexOf(entry.target);
+                indicators.forEach(ind => ind.classList.remove('active'));
+                if (indicators[index]) indicators[index].classList.add('active');
+            }
+        });
+    },
+    {
+        root: document.querySelector('.activities-grid'),
+        threshold: 0.5
+    }
+);
+
+cards.forEach(card => observer.observe(card));

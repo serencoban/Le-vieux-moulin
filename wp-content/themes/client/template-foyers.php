@@ -117,30 +117,49 @@
 
     <!-- Section activités -->
     <section class="activities-section">
-        <div class="container">
+        <div class="activities-container">
             <h2 class="activities-title">Quelques activités et voyages</h2>
             <div class="activities-grid">
-                <div class="activity-card">
-                    <div class="activity-icon">🏛️</div>
-                    <h3>Andenne</h3>
-                    <p>Visite culturelle et découverte du patrimoine local avec des activités enrichissantes.</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">🏰</div>
-                    <h3>Andenne</h3>
-                    <p>Exploration historique et moments de partage dans un cadre exceptionnel.</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">🎨</div>
-                    <h3>Ateliers créatifs</h3>
-                    <p>Développement de la créativité à travers diverses activités artistiques et manuelles.</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">🌲</div>
-                    <h3>Sorties nature</h3>
-                    <p>Découverte de l'environnement naturel et activités de plein air stimulantes.</p>
-                </div>
+                <?php
+                $args = array(
+                    'post_type' => 'activités',
+                    'posts_per_page' => 4
+                );
+                $activites_query = new WP_Query($args);
+                if ($activites_query->have_posts()) :
+                    while ($activites_query->have_posts()) : $activites_query->the_post(); ?>
+                        <div class="activity-card">
+                            <h3><?php the_title(); ?></h3>
+                            <?php
+                            $image = get_field('img_voyage');
+
+
+                            if ($image): ?>
+                                <div class="activity-img">
+                                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                </div>
+                            <?php endif; ?>
+
+                            <p><?php the_field('text-voyage'); ?></p>
+                        </div>
+                    <?php endwhile;
+                    wp_reset_postdata();
+                else :
+                    echo '<p>Aucune activité disponible pour le moment.</p>';
+                endif;
+                ?>
             </div>
+
+            <div class="activities-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+
         </div>
     </section>
+
+
+
 <?php get_footer(); ?>

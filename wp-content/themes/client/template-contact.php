@@ -2,7 +2,7 @@
 
 <?php get_header(); ?>
 
-<div class="container">
+<div class="contact-container">
     <div class="content">
         <!-- Section Contactez-nous -->
         <section class="contact-info">

@@ -23,12 +23,11 @@ section {
   width: 100%;
   border-radius: 16px;
   min-height: 300px;
-  margin-top: 60px;
+  margin-top: 32px;
   margin-bottom: 48px;
 
   @include desktop {
     height: 682px;
-    margin-top: 85px;
     border-radius: 32px;
     margin-bottom: 96px;
   }
@@ -38,8 +37,10 @@ section {
 .header_container {
   padding-left: 24px;
   max-width: 600px;
+  margin-top: 64px;
   @include desktop{
     padding-left: 80px;
+
   }
 
   p,
@@ -106,6 +107,12 @@ section {
   border-radius: 16px;
   overflow: hidden;
   flex: 1 1 45%;
+  transition: .3s ease-in-out;
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
 
   span {
     position: absolute;
@@ -259,10 +266,12 @@ section {
   cursor: pointer;
   height: 300px;
   box-shadow: 0 0 9px 0 rgba(0,0,0,0.4);
+
+
   img{
     filter: brightness(0.6);
-
   }
+
   div {
     position: relative;
     height: 100%;
@@ -272,7 +281,7 @@ section {
     padding: 25px;
     color: white;
     z-index: 1;
-
+    transition: .3s ease-in-out;
 
     @include mobile{
       padding: 15px;
@@ -301,13 +310,8 @@ section {
 
 
   p {
-    font-size: 0.95rem;
     line-height: 1.4;
     opacity: 0.9;
-
-    @include mobile{
-      font-size: 0.85rem;
-    }
   }
 
   figure {

@@ -167,17 +167,19 @@ register_post_type('projets', [
     'supports' => ['title', 'editor', 'thumbnail'],
 ]);
 
-register_taxonomy('type_work', ['work'], [
-    'labels' => [
-        'name' => 'Work type',
-        'singular_name' => 'Work type'
-    ],
-    'description' => 'Project type',
+register_post_type('activités', [
+    'label' => 'Activités',
+    'description' => 'Nos activités',
+    'menu_position' => 6,
+    'menu_icon' => 'dashicons-palmtree',
     'public' => true,
-    'hierarchical' => true,
-    'show_tagcloud' => false,
-    'rewrite' => ['slug' => 'project-type'],
+    'has_archive' => false,
+    'rewrite' => [
+        'slug' => 'activites',
+    ],
+    'supports' => ['title', 'editor', 'thumbnail'],
 ]);
+
 
 // Paramétrer des tailles d'images pour le générateur de thumbnails de Wordpress :
 

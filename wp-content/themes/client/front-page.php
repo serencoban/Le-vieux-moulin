@@ -25,7 +25,7 @@
         <div class="maisons_cards">
             <div class="maison vm">
                 <span>Le Vieux Moulin</span>
-                <a href="<?php echo get_permalink(get_page_by_path('nos-foyers')) ?>">
+                <a href="<?php echo get_permalink(get_page_by_path('nos-foyers')) ?>#vm-foyer">
                 <?php
                     $image = get_field('vm');
                     if ($image) {
@@ -35,16 +35,15 @@
                 </a>
             </div>
             <div class="maison edelweiss">
-                    <span>Edelweiss</span>
-                <a href="<?php echo get_permalink(get_page_by_path('nos-foyers'))?>">
-
+                <span>Edelweiss</span>
+                <a href="<?php echo get_permalink(get_page_by_path('nos-foyers'))?>#edelweiss-foyer">
                 <?php
                         $image = get_field('edelweiss');
                         if ($image) {
                             echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
                         }
                         ?>
-                    </a>
+                </a>
             </div>
         </div>
     </section>
@@ -84,7 +83,7 @@
         </div>
 
         <article class="projet isolation from-left">
-            <a href=""></a>
+            <a href="">
             <div>
                 <div>
                     <h3>Isolation du bâtiment</h3>
@@ -94,10 +93,11 @@
                     <img class="project_img" src="https://images.unsplash.com/photo-1582719188393-bb71ca45dbb9?w=800&h=600&fit=crop" alt="Isolation du bâtiment">
                 </figure>
             </div>
+            </a>
         </article>
 
         <article class="projet jardin from-right">
-            <a href=""></a>
+            <a href="">
             <div>
                 <div>
                     <h3>Aménagement du jardin</h3>
@@ -107,10 +107,11 @@
                     <img class="project_img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop" alt="Aménagement du jardin">
                 </figure>
             </div>
+            </a>
         </article>
 
         <article class="projet renovation from-right">
-            <a href=""></a>
+            <a href="">
             <div>
                 <div>
                     <h3>Rénover les chambres</h3>
@@ -120,6 +121,7 @@
                     <img class="project_img" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop" alt="Rénover les chambres">
                 </figure>
             </div>
+            </a>
         </article>
     </div>
 </section>

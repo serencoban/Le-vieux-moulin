@@ -10,10 +10,13 @@
 
         <div class="footer-section">
             <h3>Navigation</h3>
-            <?php wp_nav_menu([
-                'theme_location' => 'footer',
-                'container' => 'nav',
-            ]); ?>
+            <ul class="footer-menu">
+                <li><a href="<?php echo home_url(); ?>">Accueil</a></li>
+                <li><a href="<?php echo get_permalink(get_page_by_path('nos-foyers')); ?>">Nos foyers</a></li>
+                <li><a href="<?php echo get_permalink(get_page_by_path('nos-projets')); ?>">Nos projets</a></li>
+                <li><a href="<?php echo get_permalink(get_page_by_path('actualites')); ?>">Actualités</a></li>
+                <li><a href="<?php echo get_permalink(get_page_by_path('contact')); ?>">Nous contacter</a></li>
+            </ul>
 
         </div>
 
@@ -22,7 +25,7 @@
             <ul>
                 <li><a href="<?php echo site_url('/faire-un-don'); ?>">Faire un don</a></li>
                 <li><a href="<?php echo site_url('/benevolats'); ?>">Bénévolats</a></li>
-                <li><a href="<?php echo site_url('/partenaires'); ?>">Partenaires</a></li>
+                <li><a href="<?php echo site_url('/nous-contacter'); ?>">Partenaires</a></li>
             </ul>
         </div>
     </div>

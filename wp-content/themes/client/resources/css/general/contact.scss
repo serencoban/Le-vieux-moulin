@@ -1,27 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #f8f9fa;
-  line-height: 1.6;
-}
-
-.container {
+.contact-container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-
-  @media (min-width: 768px) {
-    padding: 40px;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 60px;
-  }
+  margin: 48px auto;
 }
 
 .content {
@@ -44,63 +24,36 @@ body {
 }
 
 .contact-info {
-  background: linear-gradient(135deg, #a8e6cf 0%, #7fcdcd 100%);
+  background: var(--blue);
   border-radius: 20px;
   padding: 30px 25px;
   color: #2c3e50;
-  position: relative;
   overflow: hidden;
   animation: fadeInUp 0.6s ease-out;
   grid-area: info;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transform: rotate(45deg);
-  }
 
   h1 {
-    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 15px;
-    position: relative;
     z-index: 2;
-
-    @media (min-width: 768px) {
-      font-size: 2.5rem;
-    }
-
-    @media (min-width: 1024px) {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
   }
 
   p {
-    font-size: 1rem;
     opacity: 0.9;
-    position: relative;
     z-index: 2;
 
-    @media (min-width: 1024px) {
-      font-size: 1.1rem;
-    }
   }
 }
 
 .map-section {
-  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+  background-image: url("/wp-content/themes/client/resources/img/maps.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 20px;
   padding: 20px;
-  position: relative;
   min-height: 300px;
-  overflow: hidden;
   animation: fadeInUp 0.6s ease-out;
   animation-delay: 0.1s;
   grid-area: map;
@@ -114,19 +67,12 @@ body {
     height: 280px;
     background: linear-gradient(45deg, #e8f5e8 0%, #c8e6c9 100%);
     border-radius: 15px;
-    position: relative;
     overflow: hidden;
 
     @media (min-width: 1024px) {
       height: 320px;
     }
   }
-
-
-
-
-
-
 
 }
 
@@ -155,7 +101,6 @@ body {
       margin-bottom: 8px;
       font-weight: 600;
       color: #2c3e50;
-      font-size: 0.95rem;
     }
 
     input,
@@ -164,7 +109,6 @@ body {
       padding: 15px 20px;
       border: 2px solid #e9ecef;
       border-radius: 50px;
-      font-size: 1rem;
       transition: all 0.3s ease;
       background: #f8f9fa;
 
@@ -233,12 +177,11 @@ body {
   }
 
   .submit-btn {
-    background: linear-gradient(45deg, var(--blue) 0%, var(--sky) 100%);
-    color: white;
+    background-color: var(--blue);
+
     border: none;
     padding: 18px 40px;
     border-radius: 50px;
-    font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;

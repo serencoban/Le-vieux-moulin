@@ -3,6 +3,9 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+*{
+  box-sizing: border-box;
+}
 body{
   font-family: var(--font-base), sans-serif;
   color: var(--darkblue);
@@ -106,15 +109,14 @@ p{
 .btn {
   background-color: var(--blue);
   color: var(--dark-blue);
-  padding: 10px 20px;
+  padding: 16px 20px;
   border-radius: 24px;
   font-size: 1rem;
-
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
-  transition: all 0.3s ease-in-out;
   white-space: nowrap;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     background-color: var(--blue2);
@@ -123,7 +125,6 @@ p{
   }
 
   @include desktop {
-
     border-radius: 32px;
   }
 }
