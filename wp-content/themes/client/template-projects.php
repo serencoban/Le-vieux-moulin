@@ -3,22 +3,27 @@
 get_header();
 ?>
 
-<section class="projets-section">
-    <div class="container-projects">
-        <h2><?php the_title(); ?></h2>
+<section class="hero-section">
+    <div class="hero-content">
+        <h2 class="hero-title">Nos projets</h2>
+        <p class="hero-subtitle">Découvrez nos espaces de vie chaleureux et accueillants</p>
+    </div>
+</section>
 
+<section class="projects-section">
+    <div class="container-projects">
         <?php
         $args = [
             'post_type' => 'projets',
             'posts_per_page' => -1,
         ];
-        $projets_query = new WP_Query($args);
+        $projects_query = new WP_Query($args);
 
-        if ($projets_query->have_posts()) :
-            echo '<div class="projets-grid">';
-            while ($projets_query->have_posts()) : $projets_query->the_post(); ?>
-                <div class="projet-card">
-                    <div class="image_projet">
+        if ($projects_query->have_posts()) :
+            echo '<div class="projects-grid">';
+            while ($projects_query->have_posts()) : $projects_query->the_post(); ?>
+                <div class="project-card">
+                    <div class="image_project">
                         <?php
                         $image = get_field('image_projet');
                         if ($image) {
@@ -26,9 +31,9 @@ get_header();
                         }
                         ?>
                     </div>
-                    <div class="contenu_projet">
-                        <h3 class="titre_projet"><?php the_title(); ?></h3>
-                        <div class="description_projet">
+                    <div class="contenu_project">
+                        <h3 class="titre_project"><?php the_title(); ?></h3>
+                        <div class="description_project">
                             <?php the_field('projets_description')?>
                         </div>
                         <a href="<?php the_permalink(); ?>" class="btn">Voir plus</a>

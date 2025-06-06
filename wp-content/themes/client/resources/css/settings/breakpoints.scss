@@ -14,7 +14,7 @@ $wide-min: 1600px;          // ≥ 1600px
 
 // Tablet : entre 480px et 1023px
 @mixin tablet {
-  @media (min-width: #{$tablet-min}) and (max-width: #{$tablet-max}) {
+  @media (min-width: #{$mobile-max}) and (max-width: #{$tablet-max}) {
     @content;
   }
 }

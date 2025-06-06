@@ -142,11 +142,10 @@ header {
 
 .logo {
   margin-top: 14px;
-  padding-left: 32px;
-  width: 80px;
-
+  width: 60px;
   @include desktop {
     margin-top: 24px;
+    padding-left: 32px;
   }
 
 }

@@ -10,7 +10,7 @@ body{
   font-family: var(--font-base), sans-serif;
   color: var(--darkblue);
   overflow-x: hidden;
-  padding: 0 24px ;
+  padding: 0 16px ;
   @include desktop{
     padding: 0 52px ;
   }
@@ -78,10 +78,8 @@ a{
 h2{
   font-size: 36px;
   font-weight: 800;
-  margin-bottom: 16px;
   @include desktop{
     font-size: 48px;
-    margin-bottom: 24px;
   }
 }
 h3{
@@ -117,6 +115,7 @@ p{
   display: inline-block;
   white-space: nowrap;
   transition: all 0.2s ease-in-out;
+  align-self: flex-start;
 
   &:hover {
     background-color: var(--blue2);

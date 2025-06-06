@@ -2,7 +2,6 @@
 
 <?php get_header(); ?>
 
-    <!-- Section Hero -->
     <section class="hero-section">
         <div class="hero-content">
             <h2 class="hero-title">Nos foyers</h2>

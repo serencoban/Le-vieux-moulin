@@ -5,7 +5,7 @@
         <div class="header_container">
             <h2 class="main_title"><?php echo get_field('vm_title') ?></h2>
             <div class="underline">
-                <svg xmlns="http://www.w3.org/2000/svg" width="510" height="18" viewBox="0 0 510 18" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 510 18" fill="none">
                     <path d="M2 8.33118C10.1432 3.64392 31.8042 -2.9986 53.3024 7.92942C74.8005 18.8574 92.1863 12.7506 98.1919 8.33114C108.575 4.04564 131.966 -2.03441 142.471 7.92937C152.976 17.8932 175.96 13.5541 186.139 10.1391C193.264 5.71966 211.362 -0.708581 226.753 8.93379C242.144 18.5762 267.368 12.5497 278.056 8.33114C289.558 3.71084 315.189 -2.75758 325.693 8.33114C336.198 19.4199 358.572 14.1567 368.445 10.1391C376.181 5.18398 395.99 -1.8737 413.335 9.53644C430.68 20.9466 452.524 14.6924 461.278 10.1391C469.625 6.18839 490.655 0.777951 508 10.7417"
                           stroke="#A9CAEF"
                           stroke-width="3.5"
@@ -84,8 +84,8 @@
 
         <article class="projet isolation from-left">
             <a href="">
-            <div>
-                <div>
+            <div class="projet-div-cont">
+                <div class="projet-title">
                     <h3>Isolation du bâtiment</h3>
                     <p>La vie en communauté peut être difficile, la chambre est un refuge essentiel, un lieu de sécurité.</p>
                 </div>
@@ -98,8 +98,8 @@
 
         <article class="projet jardin from-right">
             <a href="">
-            <div>
-                <div>
+                <div class="projet-div-cont">
+                    <div class="projet-title">
                     <h3>Aménagement du jardin</h3>
                     <p>Le jeu est une réelle interface d'observation des compétences de l'enfants.</p>
                 </div>
@@ -112,8 +112,8 @@
 
         <article class="projet renovation from-right">
             <a href="">
-            <div>
-                <div>
+                <div class="projet-div-cont">
+                    <div class="projet-title">
                     <h3>Rénover les chambres</h3>
                     <p>La vie en communauté peut être difficile, la chambre est un refuge essentiel, un lieu de sécurité.</p>
                 </div>
@@ -130,13 +130,39 @@
         <div class="news_container">
             <h2>Quoi de neuf ?</h2>
             <div>
-                <div class="news_post">
-                    <p>Name</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris  porttitor venenatis pretium. Praesent sit amet mi ac felis ullamcorper  scelerisque. </p>
-                </div>
-                <a class="btn" href="">Voir toutes les actualités</a>
+                <?php
+                // Récupérer le dernier article publié
+                $recent_post = new WP_Query([
+                    'post_type'      => 'post',
+                    'posts_per_page' => 1
+                ]);
+
+                if ($recent_post->have_posts()) :
+                    while ($recent_post->have_posts()) : $recent_post->the_post(); ?>
+                        <div class="news_post">
+                            <p><?php the_title(); ?></p>
+                            <p><?php echo get_field('actu-description')?></p>
+                            <?php
+                            $gallery = get_field('actu-img');
+                            if ($gallery) : ?>
+                                <div class="gallery">
+                                    <?php foreach ($gallery as $image) : ?>
+                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    <?php endwhile;
+                    wp_reset_postdata();
+                else : ?>
+                    <p>Aucun article pour le moment.</p>
+                <?php endif; ?>
+
+                <a class="btn" href="<?php echo get_permalink(get_page_by_path('actualites')); ?>">Voir toutes les actualités</a>
             </div>
         </div>
+
+
         <div class="moulin">
             <svg class="moulin-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160.356 252.646" width="300" height="300">
                 <g id="uuid-0830fc4c-5524-46f1-a886-19f9d4fda351" data-name="vent">
