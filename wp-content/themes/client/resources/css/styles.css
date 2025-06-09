@@ -427,12 +427,6 @@ header .menu-desktop {
   margin-top: 14px;
   width: 60px;
 }
-@media (min-width: 1024px) and (max-width: 1599px) {
-  .logo {
-    margin-top: 24px;
-    width: 80px;
-  }
-}
 
 .header_container {
   padding-left: 24px;

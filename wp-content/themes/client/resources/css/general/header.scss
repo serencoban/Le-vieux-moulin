@@ -131,9 +131,4 @@ header {
 .logo {
   margin-top: 14px;
   width: 60px;
-  @include desktop {
-    margin-top: 24px;
-    width: 80px;
-  }
-
 }
