@@ -2,9 +2,15 @@
 
 .actualites-page {
  .liste-articles {
+  margin: 0 auto 96px;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  animation: fadeInUp 0.8s ease-out forwards;
+  @include mobile{
+   margin-bottom: 48px;
+  }
 
   @include max-desktop {
    display: grid;
@@ -17,16 +23,11 @@
    border-radius: 10px;
    padding: 16px;
    background-color: var(--beige);
-   transition: transform 0.3s ease;
    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
-   &:hover{
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-   }
 
    h3{
     margin-bottom: 10px;
    }
-
    .actu-image{
     display: flex;
     gap: 16px;
@@ -38,17 +39,8 @@
      object-fit: cover;
     }
    }
-
    p {
     margin-bottom: 15px;
-   }
-
-   a {
-    text-decoration: underline;
-   }
-
-   &:hover {
-    transform: translateY(-5px);
    }
   }
  }

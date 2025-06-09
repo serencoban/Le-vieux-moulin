@@ -15,6 +15,7 @@ body{
     padding: 0 52px ;
   }
 }
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -71,35 +72,34 @@ a{
   font-size: 36px;
   color: var(--white);
   font-weight: 600;
-  @include desktop{
+  @include max-desktop{
     font-size: 64px;
   }
 }
 h2{
   font-size: 36px;
   font-weight: 800;
-  @include desktop{
+  @include max-desktop{
     font-size: 48px;
   }
 }
 h3{
   font-size: 24px;
   font-weight: 800;
-  @include desktop{
+  @include max-desktop{
     font-size: 32px;
   }
 }
 h4{
   font-size: 20px;
   font-weight: 800;
-  @include desktop{
+  @include max-desktop{
     font-size: 28px;
   }
 }
-
 p{
   font-size: 14px;
-  @include desktop{
+  @include max-desktop{
     font-size: 16px;
   }
 }
@@ -109,21 +109,20 @@ p{
   color: var(--dark-blue);
   padding: 16px 20px;
   border-radius: 24px;
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
   white-space: nowrap;
   transition: all 0.2s ease-in-out;
   align-self: flex-start;
-
   &:hover {
     background-color: var(--blue2);
     transform: translateY(-2px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
   }
-
-  @include desktop {
+  @include max-desktop {
     border-radius: 32px;
+    font-size: 1rem;
   }
 }

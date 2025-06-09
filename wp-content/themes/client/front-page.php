@@ -19,7 +19,7 @@
     </section>
     <section class="maisons_container">
         <div class="info_maisons">
-            <h2>Découvrez nos lieux de vies</h2>
+            <h3>Découvrez nos lieux de vies</h3>
             <p><?php echo get_field('description_maison') ?></p>
         </div>
         <div class="maisons_cards">
@@ -48,88 +48,82 @@
         </div>
     </section>
     <section class="valeur-container">
-        <h2>Notre but est d’offrir un accueil</h2>
+        <h3>Notre but est d’offrir un accueil</h3>
         <div class="accueil-cards">
             <div class="accueil-card">
                 <div class="card-header">
                     <img src="wp-content/themes/client/resources/img/materiel.png" alt="Icone Matériel" class="icon" />
-                    <h3 class="highlight-title">Matériel</h3>
+                    <h4 class="highlight-title">Matériel</h4>
                 </div>
                 <p><?php echo get_field('materiel') ?></p>
             </div>
             <div class="accueil-card">
                 <div class="card-header">
                     <img src="wp-content/themes/client/resources/img/educatif.png" alt="Icone Educatif" class="icon" />
-                    <h3 class="highlight-title">Educatif</h3>
+                    <h4 class="highlight-title">Educatif</h4>
                 </div>
                 <p><?php echo get_field('educatif') ?></p>
             </div>
             <div class="accueil-card">
                 <div class="card-header">
                     <img src="wp-content/themes/client/resources/img/psycho.png" alt="Icone Psychologique" class="icon" />
-                    <h3 class="highlight-title">Psychologique</h3>
+                    <h4 class="highlight-title">Psychologique</h4>
                 </div>
                 <p><?php echo get_field('psychologique') ?></p>
             </div>
         </div>
     </section>
-
 <section class="projet-container">
     <div class="projets-grid">
         <div class="projets-header from-left">
-            <h2>Les projets pour nos enfants</h2>
+            <h3>Les projets pour nos enfants</h3>
             <p>Des projets concrets pour améliorer leur lieu de vie.</p>
-            <a class="btn" href="">Découvrez tous nos projets</a>
+            <a class="btn" href="<?php echo get_post_type_archive_link('projet'); ?>">Découvrez tous nos projets</a>
         </div>
-
-        <article class="projet isolation from-left">
-            <a href="">
-            <div class="projet-div-cont">
-                <div class="projet-title">
-                    <h3>Isolation du bâtiment</h3>
-                    <p>La vie en communauté peut être difficile, la chambre est un refuge essentiel, un lieu de sécurité.</p>
-                </div>
-                <figure>
-                    <img class="project_img" src="https://images.unsplash.com/photo-1582719188393-bb71ca45dbb9?w=800&h=600&fit=crop" alt="Isolation du bâtiment">
-                </figure>
-            </div>
-            </a>
-        </article>
-
-        <article class="projet jardin from-right">
-            <a href="">
-                <div class="projet-div-cont">
-                    <div class="projet-title">
-                    <h3>Aménagement du jardin</h3>
-                    <p>Le jeu est une réelle interface d'observation des compétences de l'enfants.</p>
-                </div>
-                <figure>
-                    <img class="project_img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop" alt="Aménagement du jardin">
-                </figure>
-            </div>
-            </a>
-        </article>
-
-        <article class="projet renovation from-right">
-            <a href="">
-                <div class="projet-div-cont">
-                    <div class="projet-title">
-                    <h3>Rénover les chambres</h3>
-                    <p>La vie en communauté peut être difficile, la chambre est un refuge essentiel, un lieu de sécurité.</p>
-                </div>
-                <figure>
-                    <img class="project_img" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop" alt="Rénover les chambres">
-                </figure>
-            </div>
-            </a>
-        </article>
+        <?php
+        $args = [
+            'post_type' => 'projets',
+            'posts_per_page' => 3,
+            'orderby' => 'date',
+            'order' => 'DESC',
+        ];
+        $projets_query = new WP_Query($args);
+        if ($projets_query->have_posts()) :
+            while ($projets_query->have_posts()) : $projets_query->the_post();
+                $image = get_field('image_projet');
+                ?>
+                <article <?php post_class('mini_desc_projet'); ?>>
+                    <a href="<?php the_permalink(); ?>" title="Aller vers le projet">
+                        <div class="projet-div-cont">
+                            <div class="projet-title">
+                                <h4><?php the_title(); ?></h4>
+                                <p><?php echo get_field('mini_desc_projet')?></p>
+                            </div>
+                            <?php if ($image): ?>
+                                <figure>
+                                    <img class="project_img" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                                </figure>
+                            <?php endif; ?>
+                            <div class="voir-plus">
+                                <svg class="arrow-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                                <span class="voir-text">Voir plus</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            <?php endwhile;
+            wp_reset_postdata();
+        else : ?>
+            <p>Aucun projet disponible pour le moment.</p>
+        <?php endif; ?>
     </div>
 </section>
-
     <section class="news">
         <div class="news_container">
-            <h2>Quoi de neuf ?</h2>
-            <div>
+            <h3>Quoi de neuf ?</h3>
+            <div class="news-div">
                 <?php
                 // Récupérer le dernier article publié
                 $recent_post = new WP_Query([
@@ -140,29 +134,17 @@
                 if ($recent_post->have_posts()) :
                     while ($recent_post->have_posts()) : $recent_post->the_post(); ?>
                         <div class="news_post">
-                            <p><?php the_title(); ?></p>
+                            <h4><?php the_title(); ?></h4>
                             <p><?php echo get_field('actu-description')?></p>
-                            <?php
-                            $gallery = get_field('actu-img');
-                            if ($gallery) : ?>
-                                <div class="gallery">
-                                    <?php foreach ($gallery as $image) : ?>
-                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php endif; ?>
                         </div>
                     <?php endwhile;
                     wp_reset_postdata();
                 else : ?>
                     <p>Aucun article pour le moment.</p>
                 <?php endif; ?>
-
                 <a class="btn" href="<?php echo get_permalink(get_page_by_path('actualites')); ?>">Voir toutes les actualités</a>
             </div>
         </div>
-
-
         <div class="moulin">
             <svg class="moulin-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160.356 252.646" width="300" height="300">
                 <g id="uuid-0830fc4c-5524-46f1-a886-19f9d4fda351" data-name="vent">
@@ -186,10 +168,9 @@
             </svg>
         </div>
     </section>
-
 <section class="faq-section">
     <div class="faq-header">
-        <h2 class="faq-title">FAQ</h2>
+        <h3 class="faq-title">FAQ</h3>
         <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" width="510" height="18" viewBox="0 0 510 18" fill="none">
             <path d="M2 8.33118C10.1432 3.64392 31.8042 -2.9986 53.3024 7.92942C74.8005 18.8574 92.1863 12.7506 98.1919 8.33114C108.575 4.04564 131.966 -2.03441 142.471 7.92937C152.976 17.8932 175.96 13.5541 186.139 10.1391C193.264 5.71966 211.362 -0.708581 226.753 8.93379C242.144 18.5762 267.368 12.5497 278.056 8.33114C289.558 3.71084 315.189 -2.75758 325.693 8.33114C336.198 19.4199 358.572 14.1567 368.445 10.1391C376.181 5.18398 395.99 -1.8737 413.335 9.53644C430.68 20.9466 452.524 14.6924 461.278 10.1391C469.625 6.18839 490.655 0.777951 508 10.7417"
                   stroke="#A9CAEF"
@@ -197,70 +178,40 @@
                   stroke-linecap="round"/>
         </svg>
     </div>
-
     <div class="accordion-container">
-        <div class="accordion-item">
-            <div class="accordion-header">
-                <span class="accordion-title">Ressources téléchargeables</span>
-                <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="accordion-content">
-                <div class="accordion-body">
-                    <a href="doc.pdf" class="download-link">
-                        <svg class="download-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        Télécharger le document PDF
-                    </a>
-                </div>
-            </div>
-        </div>
+        <?php if( have_rows('faq_item') ): ?>
+            <?php while( have_rows('faq_item') ): the_row();
+                $question = get_sub_field('question');
+                $answer = get_sub_field('reponse');
+                $pdf = get_sub_field('link_faq');
 
-        <div class="accordion-item">
-            <div class="accordion-header">
-                <span class="accordion-title">Ressources téléchargeables</span>
-                <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="accordion-content">
-                <div class="accordion-body">
-                    <a href="doc.pdf" class="download-link">
-                        <svg class="download-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        Télécharger le guide complet
-                    </a>
-                </div>
-            </div>
-        </div>
+                $pdf_field = get_sub_field('link_faq');
+                $pdf_url = is_array($pdf_field) ? ($pdf_field['url'] ?? '') : $pdf_field;
 
-        <div class="accordion-item">
-            <div class="accordion-header">
-                <span class="accordion-title">Ressources téléchargeables</span>
-                <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="accordion-content">
-                <div class="accordion-body">
-                    <a href="doc.pdf" class="download-link">
-                        <svg class="download-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                ?>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-title"><?php echo esc_html($question); ?></span>
+                        <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
-                        Télécharger les ressources additionnelles
-                    </a>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <?php echo wp_kses_post($answer); ?>
+                            <?php if ($pdf_url): ?>
+                                <a href="<?php echo esc_url($pdf_url); ?>" class="download-link" rel="noopener">
+                                    <svg class="download-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                    Télécharger le document
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            <?php endwhile; ?>
+        <?php endif; ?>
     </div>
 </section>
-
 <?php get_footer(); ?>
-
-
-
-
-

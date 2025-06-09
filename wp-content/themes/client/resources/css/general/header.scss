@@ -4,24 +4,31 @@ header {
   font-family: var(--font-base);
   position: relative;
   font-weight: 600;
-
+  .header__container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .menu-desktop {
     display: none;
-
-    @include desktop {
+    @include wide{
+      margin: 0 100px;
+    }
+    @include max-desktop {
       display: flex;
       position: absolute;
       top: 32px;
       right: 0;
       justify-content: flex-end;
       align-items: center;
-
-
       ul {
         display: flex;
         gap: 22px;
       }
-
       li {
         position: relative;
         display: flex;
@@ -38,26 +45,20 @@ header {
           padding: 12px 24px;
         }
       }
-
     }
   }
 }
-
 .nav_menu {
   position: relative;
   width: 100%;
   z-index: 100;
-
 }
-
 #menuToggle {
   position: absolute;
   top: 32px;
-  right: 32px;
+  right: 16px;
   z-index: 10;
   user-select: none;
-
-
   input {
     display: block;
     width: 40px;
@@ -69,7 +70,6 @@ header {
     opacity: 0;
     z-index: 3;
   }
-
   span {
     display: block;
     width: 30px;
@@ -79,27 +79,22 @@ header {
     border-radius: 32px 0;
     transition: 0.5s ease-in-out;
   }
-
-  @include desktop {
+  @include max-desktop {
     input[id="menuCheckbox"],
     span {
       display: none;
     }
   }
 }
-
 #menuToggle input:checked ~ span:nth-child(3) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-
 #menuToggle input:checked ~ span:nth-child(4) {
   opacity: 0;
 }
-
 #menuToggle input:checked ~ span:nth-child(5) {
   transform: rotate(-45deg) translate(7px, -6px);
 }
-
 .sidenav {
   position: fixed;
   top: 0;
@@ -115,37 +110,30 @@ header {
   align-items: center;
   list-style: none;
   text-align: center;
-  padding: 0;
   opacity: 1;
   z-index: -10;
-
   li {
-
     margin-bottom: 32px ;
   }
-
   a {
     font-size: 24px;
     text-decoration: none;
   }
 }
-
 .sidenav__hide {
   opacity: 0;
   transform: translate(-100vw);
 }
-
 #menuToggle input:checked ~ .sidenav {
   transform: translateX(0);
   opacity: 1;
 }
-
 .logo {
   margin-top: 14px;
   width: 60px;
   @include desktop {
     margin-top: 24px;
-    padding-left: 32px;
+    width: 80px;
   }
 
 }

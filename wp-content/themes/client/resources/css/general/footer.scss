@@ -7,7 +7,7 @@
   color: white;
   padding: 40px 32px 20px;
 
-  @include desktop{
+  @include max-desktop{
     padding: 60px 40px 30px;
     margin: 0 -52px;
   }
@@ -22,13 +22,13 @@
     flex-direction: column;
     gap: 30px;
 
-    @include desktop{
+    @include max-desktop{
       flex-direction: row;
       align-items: flex-start;
       gap: 40px;
     }
 
-    @include desktop{
+    @include max-desktop{
       gap: 60px;
     }
   }
@@ -36,7 +36,7 @@
   .footer-section {
     flex: 1;
 
-    @include desktop{
+    @include max-desktop{
       min-width: 0;
     }
 
@@ -80,7 +80,7 @@
     border-top: 1px solid #34495e;
     text-align: center;
 
-    @include desktop{
+    @include max-desktop{
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -91,7 +91,7 @@
       margin: 5px 0;
       color: #bdc3c7;
 
-      @include desktop{
+      @include max-desktop{
         margin: 0;
       }
     }

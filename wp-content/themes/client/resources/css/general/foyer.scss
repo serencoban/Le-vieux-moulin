@@ -12,20 +12,19 @@
   height: 150px;
   width: 100%;
   border-radius: 16px;
-  margin-top: 32px;
-  margin-bottom: 48px;
   padding: 14px;
-
+  margin: 40px auto;
+  max-width: 1400px;
+  animation: fadeInUp 0.8s ease-out forwards;
   @include max-desktop {
     height: 305px;
-    margin: 48px auto;
     border-radius: 32px;
     padding: 80px;
+    margin-bottom: 96px;
   }
-
   .hero-title {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
 
@@ -44,26 +43,18 @@
     bottom: -8px;
     left: 0;
     width: 100%;
-    pointer-events: none; // évite que le SVG gêne l’interaction
   }
 }
 
 .main-content {
   .foyer-card {
+    animation: fadeInUp 0.8s ease-out forwards;
+    margin: 48px auto 32px;
+    max-width: 1400px;
     background-color: var(--beige);
     border-radius: 15px;
     padding: 40px;
-    margin-bottom: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
   }
-
-
   .foyer-description {
     line-height: 1.8;
     color: #555;
@@ -79,6 +70,7 @@
     padding: 1rem;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    justify-content: space-between;
 
     img {
       flex: 0 0 auto;
@@ -88,10 +80,6 @@
       border-radius: 1rem;
       scroll-snap-align: start;
       object-fit: cover;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      &:hover {
-        transform: scale(1.05); // zoom léger
-      }
     }
 
     scrollbar-width: none;
@@ -111,9 +99,12 @@
     margin: 0 -52px;
   }
   .values-title {
-    margin-bottom: 50px;
+    margin: 0 auto 50px;
+    max-width: 1400px;
   }
   .values-grid {
+    margin: 0 auto;
+    max-width: 1400px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -159,7 +150,7 @@
 
 
 .journey-section {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 48px auto;
   display: flex;
   flex-direction: column;
@@ -260,32 +251,53 @@
   }
 }
 
+.activities-section{
+
+.activities-title{
+  margin: 0 auto 24px;
+  max-width: 1200px;
+}
 .activities-grid {
+  margin: 0 auto 96px;
+  max-width: 1400px;
   display: flex;
   gap: 16px;
   overflow-x: auto;
   scroll-snap-type: none;
   padding-bottom: 16px;
+  justify-content: space-evenly;
   @include max-desktop{
     display: flex;
     overflow: visible;
     gap: 16px;
-    justify-content: space-between;
+  }
+  @include mobile{
+    margin: 0 auto 48px;
+  }
+  h3{
+    margin-top: 16px;
+  }
+  img {
+    max-width: 250px;
+    width: 100%;
+    height: 200px;
+    display: block;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
   }
 
   .activity-card {
-    min-width: 300px;
+    min-width: 266px;
     max-width: 300px;
     flex-direction: row;
     scroll-snap-align: start;
     border-radius: 32px;
-    height: 400px;
+    height: 500px;
     padding: 32px;
     color: var(--dark-blue);
     @include max-desktop{
-      height: 400px;
-      scroll-snap-align: unset;
-
+      min-width: 300px;
     }
 
     &:nth-child(1) { background-color: var(--blue); }
@@ -322,4 +334,5 @@
       display: none;
     }
   }
+}
 }

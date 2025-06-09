@@ -1,7 +1,11 @@
 @import "../settings/breakpoints";
 .projects-section {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 96px;
+  animation: fadeInUp 0.8s ease-out forwards;
+  @include mobile{
+    margin-bottom: 48px;
+  }
 
   .projects-grid {
     display: flex;
@@ -83,11 +87,15 @@
   background-repeat: no-repeat;
   background-position: center;
   padding: 40px;
-  margin-bottom: 48px;
+  margin: 0 auto 96px;
+  max-width: 1200px;
   border-radius: 32px;
   color: var(--white);
   font-weight: 500;
   h3{
     margin-bottom: 24px;
+  }
+  @include mobile{
+    margin-bottom: 96px;
   }
 }
