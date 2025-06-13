@@ -1,6 +1,7 @@
 </main>
 <footer class="footer">
     <div class="footer-top">
+        <h2 class="sro">Footer</h2>
         <div class="footer-section">
             <h3>Coordonnées</h3>
             <p>Rue des Vennes, Strainchamps 1, 6637 Fauvillers</p>

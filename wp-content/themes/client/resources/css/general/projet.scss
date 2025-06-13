@@ -1,0 +1,92 @@
+@import "../settings/breakpoints";
+.single-projet {
+  margin: 48px auto;
+  line-height: 24px;
+  max-width: 1200px;
+  @include max-desktop {
+    margin: 96px auto;
+  }
+  .projet-intro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 48px;
+    flex-direction: column-reverse;
+    @include max-tablet {
+      flex-direction: row; // desktop : bulle à droite
+      align-items: flex-start;
+    }
+    > div:first-child {
+      flex: 1;
+      min-width: 250px;
+      h2 {
+        line-height: 1.4;
+        margin-bottom: 24px;
+      }
+      .mini-desc {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
+    .bubbles-svg {
+      flex-shrink: 0;
+      max-width: 100%;
+      width: 150px;
+      margin: 0 auto;
+      animation: float 3s ease-in-out infinite;
+      svg {
+        width: 100%;
+        height: auto;
+      }
+      @include max-tablet {
+        width: 240px;
+      }
+      @include max-desktop {
+        margin: 0;
+        width: 190px;
+      }
+    }
+  }
+}
+  .galerie {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    @include max-tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      img {
+        width: calc(33.333% - 1rem);
+      }
+    }
+  }
+  .projet-description{
+    p{
+      margin-bottom: 1.5rem;
+    }
+  }
+.other-project {
+  font-family: var(--font-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 1rem;
+  .other-project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

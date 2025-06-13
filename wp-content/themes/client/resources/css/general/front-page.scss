@@ -133,7 +133,8 @@ section {
     padding: 80px 50px;
     margin: 0 -50px 96px;
   }
-  h3{
+  h2{
+    line-height: normal;
     margin: 0 auto 24px;
     max-width: 1400px;
   }
@@ -155,9 +156,19 @@ section {
       border-radius: 32px;
       flex: 1;
       text-align: left;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      .no-js & {
+        opacity: 1;
+        transform: none;
+      }
+
+      // JS activé : caché tant que pas visible
+      .js & {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      // Quand visible (via JS + IntersectionObserver)
       &.visible {
         opacity: 1;
         transform: translateY(0);
@@ -181,13 +192,13 @@ section {
         content: '';
         position: absolute;
         left: 0;
-        bottom: 32px;
+        bottom: 28px;
         height: 12px;
         width: 100%;
         background-color: var(--yellow);
         z-index: -1;
         @include max-desktop{
-          bottom: 20px;
+          bottom: 12px;
           height: 16px;
         }
       }
@@ -198,6 +209,9 @@ section {
 .projet-container {
   max-width: 1400px;
   margin: 0 auto 48px;
+  @include max-desktop{
+    margin: 0 auto 96px;
+  }
   .projets-grid {
     display: flex;
     flex-direction: column;
@@ -208,7 +222,10 @@ section {
       grid-template-rows: auto auto;
     }
     .projets-header {
-      h3 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h2 {
         margin-bottom: 1rem;
       }
       p {
@@ -281,8 +298,11 @@ section {
           left: 0;
           right: 0;
           color: var(--white);
-          padding: 24px 0 0 24px;
+          padding: 24px;
           z-index: 2;
+          @include max-desktop{
+            padding: 48px;
+          }
           h3 {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
@@ -301,85 +321,83 @@ section {
           }
         }
       }
-      .voir-plus {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        position: absolute;
-        bottom: 16px;
-        right: 16px;
-        overflow: hidden;
-        background-color: var(--blue);
-        cursor: pointer;
-        transition: width 0.3s ease, border-radius 0.3s ease;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-        svg.arrow-icon {
-          width: 17px;
-          height: 17px;
-          flex-shrink: 0;
-          margin-left: auto;
-          margin-right: auto;
-          transition: all 0.3s ease;
-          stroke: var(--dark-blue);
-        }
-        .voir-text {
-          position: absolute;
-          right: 0;
-          width: 0;
-          opacity: 0;
-          white-space: nowrap;
-          font-size: 14px;
-          font-weight: 600;
-          color: var(--dark-blue);
-          transition: all 0.3s ease;
-        }
-        &:active {
-          transform: translate(2px, 2px);
-        }
       }
-      .projet-div-cont:hover .voir-plus {
-        width: 125px;
-        border-radius: 40px;
-
-        svg.arrow-icon {
-          margin-left: 16px;
-          width: 20px;
-        }
-
-        .voir-text {
-          opacity: 1;
-          width: 70%;
-          padding-right: 10px;
-        }
+    .voir-plus {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      overflow: hidden;
+      background-color: var(--blue);
+      cursor: pointer;
+      transition: width 0.3s ease, border-radius 0.3s ease;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+      .arrow-icon {
+        width: 17px;
+        height: 17px;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+        stroke: var(--dark-blue);
+      }
+      .voir-text {
+        position: absolute;
+        right: 0;
+        width: 0;
+        opacity: 0;
+        white-space: nowrap;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--dark-blue);
+        transition: all 0.3s ease;
+        padding-left: 16px;
+      }
+      &:active {
+        transform: translate(2px, 2px);
       }
     }
+    .projet-div-cont:hover .voir-plus {
+      width: 125px;
+      border-radius: 40px;
+      svg.arrow-icon {
+        margin-left: 8px;
+        width: 20px;
+      }
+      .voir-text {
+        opacity: 1;
+        width: 70%;
+      }
+    }
+    .projet-div-cont:hover .voir-plus {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    .projet-div-cont:hover .voir-plus {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    .from-left {
+      animation: slideInFromLeft 0.6s ease-out;
+    }
+    @keyframes slideInFromLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
   }
-  .projet-div-cont:hover .voir-plus {
-    transform: translate(0, 0);
-    opacity: 1;
   }
 
-  .projet-div-cont:hover .voir-plus {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-  .from-left {
-    animation: slideInFromLeft 0.6s ease-out;
-  }
-}
-@keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 /****************************** 5eme section ****************************************/
 .news {
   background-color: var(--beige);
@@ -398,21 +416,16 @@ section {
   .news_container {
     border-radius: 0 32px 32px 0;
     padding: 24px;
-    flex: 0 0 66.666%;
     @include max-desktop{
       border-radius: 32px;
       background-color: var(--beige);
       padding: 50px;
+      flex: 0 0 66.666%;
     }
-    h3{
+    h2{
       width: 100%;
       max-width: 1400px;
       margin: 0 auto 24px;
-    }
-    a {
-      display: inline-block;
-      background-color: var(--blue);
-      padding: 14px 40px;
     }
     .news-div{
       max-width: 1400px;
@@ -424,7 +437,7 @@ section {
         padding: 32px 40px;
         overflow: hidden;
         line-height: 16px;
-        h4{
+        h3{
           margin-bottom: 16px;
         }
         .gallery {
@@ -458,7 +471,7 @@ section {
         transform-origin: 83.061px 68.411px;
       }
     }
-    @media (max-width: 390px) {
+    @include mobile{
       display: none;
     }
   }
@@ -481,14 +494,10 @@ section {
   .faq-header {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     flex-wrap: nowrap;
     gap: 20px;
     .faq-title {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 900;
-      color: #2d3748;
-      letter-spacing: -0.02em;
       flex: 0 0 auto;
       white-space: nowrap;
     }
@@ -504,66 +513,28 @@ section {
     flex-direction: column;
     gap: 16px;
     .accordion-item {
+      padding: 24px;
       background-color: var(--beige);
-      border-radius: 20px;
-      overflow: hidden;
+      border-radius: 32px;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       &:hover {
-        background-color: var(--beige);
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
       }
-      &.active {
-        .accordion-icon {
-          transform: rotate(180deg);
-        }
-        .accordion-content {
-          max-height: 300px;
-        }
-      }
-      .accordion-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 24px 28px;
-        cursor: pointer;
-        user-select: none;
-        transition: all 0.2s ease;
-        .accordion-title {
-          font-size: 1.1rem;
-          font-weight: 600;
-          color: #2d3748;
-          flex: 1;
-        }
-        .accordion-icon {
-          width: 24px;
-          height: 24px;
-          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          flex-shrink: 0;
-          margin-left: 16px;
-        }
+      .accordion-title{
+        font-size: 20px;
+        font-weight: 600;
       }
       .accordion-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        color: #5e5e5e;
         .accordion-body {
-          padding: 0 28px 24px 28px;
-          .download-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #4299e1;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            padding: 8px 12px;
-            border-radius: 8px;
-            &:hover {
-              background: rgba(66, 153, 225, 0.1);
-              color: #2b6cb0;
-              text-decoration: underline;
-            }
+          display: flex;
+          flex-direction: column;
+          padding: 16px;
+          .download-link{
+            margin-top: 16px;
+            color: var(--dark-blue);
+            text-decoration: underline;
             .download-icon {
               width: 16px;
               height: 16px;

@@ -40,8 +40,6 @@ $wide-min: 1600px;          // ≥ 1600px
   }
 }
 
-
-
 // Wide : à partir de 1600px
 @mixin wide {
   @media (min-width: #{$wide-min}) {

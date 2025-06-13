@@ -3,8 +3,8 @@
 <?php get_header(); ?>
     <section class="header">
         <div class="header_container">
-            <h2 class="main_title"><?php echo get_field('vm_title') ?></h2>
-            <div class="underline">
+            <h2 itemprop="name" class="main_title"><?php echo get_field('vm_title') ?></h2>
+            <div class="underline" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 510 18" fill="none">
                     <path d="M2 8.33118C10.1432 3.64392 31.8042 -2.9986 53.3024 7.92942C74.8005 18.8574 92.1863 12.7506 98.1919 8.33114C108.575 4.04564 131.966 -2.03441 142.471 7.92937C152.976 17.8932 175.96 13.5541 186.139 10.1391C193.264 5.71966 211.362 -0.708581 226.753 8.93379C242.144 18.5762 267.368 12.5497 278.056 8.33114C289.558 3.71084 315.189 -2.75758 325.693 8.33114C336.198 19.4199 358.572 14.1567 368.445 10.1391C376.181 5.18398 395.99 -1.8737 413.335 9.53644C430.68 20.9466 452.524 14.6924 461.278 10.1391C469.625 6.18839 490.655 0.777951 508 10.7417"
                           stroke="#A9CAEF"
@@ -13,17 +13,19 @@
                           class="draw-path"/>
                 </svg>
             </div>
-            <p><?php echo get_field('main_description') ?></p>
-            <a class="btn" href="">Nous soutenir</a>
+            <p itemprop="description"><?php echo get_field('main_description') ?></p>
+            <a class="btn" href="<?php echo get_permalink(54); ?>" aria-label="Nous soutenir via un don" title="Aller vers la page nous soutenir">Nous soutenir</a>
+
         </div>
     </section>
     <section class="maisons_container">
+        <h2>Découvrez nos lieux de vies</h2>
         <div class="info_maisons">
-            <h3>Découvrez nos lieux de vies</h3>
             <p><?php echo get_field('description_maison') ?></p>
         </div>
         <div class="maisons_cards">
             <div class="maison vm">
+                <h3 class="sro">Le vieux moulin</h3>
                 <span>Le Vieux Moulin</span>
                 <a href="<?php echo get_permalink(get_page_by_path('nos-foyers')) ?>#vm-foyer">
                 <?php
@@ -35,6 +37,7 @@
                 </a>
             </div>
             <div class="maison edelweiss">
+                <h3 class="sro">Edelweiss</h3>
                 <span>Edelweiss</span>
                 <a href="<?php echo get_permalink(get_page_by_path('nos-foyers'))?>#edelweiss-foyer">
                 <?php
@@ -48,26 +51,26 @@
         </div>
     </section>
     <section class="valeur-container">
-        <h3>Notre but est d’offrir un accueil</h3>
+        <h2>Notre but est d’offrir un accueil</h2>
         <div class="accueil-cards">
             <div class="accueil-card">
                 <div class="card-header">
                     <img src="wp-content/themes/client/resources/img/materiel.png" alt="Icone Matériel" class="icon" />
-                    <h4 class="highlight-title">Matériel</h4>
+                    <h3 class="highlight-title">Matériel</h3>
                 </div>
                 <p><?php echo get_field('materiel') ?></p>
             </div>
             <div class="accueil-card">
                 <div class="card-header">
                     <img src="wp-content/themes/client/resources/img/educatif.png" alt="Icone Educatif" class="icon" />
-                    <h4 class="highlight-title">Educatif</h4>
+                    <h3 class="highlight-title">Educatif</h3>
                 </div>
                 <p><?php echo get_field('educatif') ?></p>
             </div>
             <div class="accueil-card">
                 <div class="card-header">
                     <img src="wp-content/themes/client/resources/img/psycho.png" alt="Icone Psychologique" class="icon" />
-                    <h4 class="highlight-title">Psychologique</h4>
+                    <h3 class="highlight-title">Psychologique</h3>
                 </div>
                 <p><?php echo get_field('psychologique') ?></p>
             </div>
@@ -76,9 +79,9 @@
 <section class="projet-container">
     <div class="projets-grid">
         <div class="projets-header from-left">
-            <h3>Les projets pour nos enfants</h3>
-            <p>Des projets concrets pour améliorer leur lieu de vie.</p>
-            <a class="btn" href="<?php echo get_post_type_archive_link('projet'); ?>">Découvrez tous nos projets</a>
+            <h2>Les projets pour nos enfants</h2>
+            <p>Des projets concrets pour améliorer leur lieu de vie&nbsp;.</p>
+            <a class="btn" href="<?php echo get_permalink(61); ?>" title="Découvrez tous nos projets">Découvrez tous nos projets</a>
         </div>
         <?php
         $args = [
@@ -96,7 +99,7 @@
                     <a href="<?php the_permalink(); ?>" title="Aller vers le projet">
                         <div class="projet-div-cont">
                             <div class="projet-title">
-                                <h4><?php the_title(); ?></h4>
+                                <h3><?php the_title(); ?></h3>
                                 <p><?php echo get_field('mini_desc_projet')?></p>
                             </div>
                             <?php if ($image): ?>
@@ -105,8 +108,8 @@
                                 </figure>
                             <?php endif; ?>
                             <div class="voir-plus">
-                                <svg class="arrow-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="16" viewBox="0 0 25 16" fill="none">
+                                    <path d="M24.7071 8.70711C25.0976 8.31658 25.0976 7.68342 24.7071 7.29289L18.3431 0.928932C17.9526 0.538408 17.3195 0.538408 16.9289 0.928932C16.5384 1.31946 16.5384 1.95262 16.9289 2.34315L22.5858 8L16.9289 13.6569C16.5384 14.0474 16.5384 14.6805 16.9289 15.0711C17.3195 15.4616 17.9526 15.4616 18.3431 15.0711L24.7071 8.70711ZM0 8V9H24V8V7H0V8Z" fill="#222443"/>
                                 </svg>
                                 <span class="voir-text">Voir plus</span>
                             </div>
@@ -116,13 +119,13 @@
             <?php endwhile;
             wp_reset_postdata();
         else : ?>
-            <p>Aucun projet disponible pour le moment.</p>
+            <p>Aucun projet disponible pour le moment&nbsp;.</p>
         <?php endif; ?>
     </div>
 </section>
     <section class="news">
         <div class="news_container">
-            <h3>Quoi de neuf ?</h3>
+            <h2>Quoi de neuf&nbsp;?</h2>
             <div class="news-div">
                 <?php
                 // Récupérer le dernier article publié
@@ -134,13 +137,13 @@
                 if ($recent_post->have_posts()) :
                     while ($recent_post->have_posts()) : $recent_post->the_post(); ?>
                         <div class="news_post">
-                            <h4><?php the_title(); ?></h4>
+                            <h3><?php the_title(); ?></h3>
                             <p><?php echo get_field('actu-description')?></p>
                         </div>
                     <?php endwhile;
                     wp_reset_postdata();
                 else : ?>
-                    <p>Aucun article pour le moment.</p>
+                    <p>Aucun article pour le moment&nbsp;.</p>
                 <?php endif; ?>
                 <a class="btn" href="<?php echo get_permalink(get_page_by_path('actualites')); ?>">Voir toutes les actualités</a>
             </div>
@@ -170,7 +173,7 @@
     </section>
 <section class="faq-section">
     <div class="faq-header">
-        <h3 class="faq-title">FAQ</h3>
+        <h2 class="faq-title">FAQ</h2>
         <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" width="510" height="18" viewBox="0 0 510 18" fill="none">
             <path d="M2 8.33118C10.1432 3.64392 31.8042 -2.9986 53.3024 7.92942C74.8005 18.8574 92.1863 12.7506 98.1919 8.33114C108.575 4.04564 131.966 -2.03441 142.471 7.92937C152.976 17.8932 175.96 13.5541 186.139 10.1391C193.264 5.71966 211.362 -0.708581 226.753 8.93379C242.144 18.5762 267.368 12.5497 278.056 8.33114C289.558 3.71084 315.189 -2.75758 325.693 8.33114C336.198 19.4199 358.572 14.1567 368.445 10.1391C376.181 5.18398 395.99 -1.8737 413.335 9.53644C430.68 20.9466 452.524 14.6924 461.278 10.1391C469.625 6.18839 490.655 0.777951 508 10.7417"
                   stroke="#A9CAEF"
@@ -184,7 +187,6 @@
                 $question = get_sub_field('question');
                 $answer = get_sub_field('reponse');
                 $pdf = get_sub_field('link_faq');
-
                 $pdf_field = get_sub_field('link_faq');
                 $pdf_url = is_array($pdf_field) ? ($pdf_field['url'] ?? '') : $pdf_field;
 
@@ -192,9 +194,6 @@
                 <div class="accordion-item">
                     <div class="accordion-header">
                         <span class="accordion-title"><?php echo esc_html($question); ?></span>
-                        <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">

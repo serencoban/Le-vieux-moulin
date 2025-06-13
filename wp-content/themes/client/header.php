@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?= __hepl('fr') ?>">
+<html lang="<?= __hepl('fr') ?>" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,18 +12,18 @@
   <script src="<?= dw_asset('js') ?>" defer></script>
   <?php wp_head(); ?>
 </head>
-<body>
-<header>
-    <h1 class="hidden"><?php the_title(); ?></h1>
+<body itemscope="" itemtype="https://schema.org/Organization">
+<header role="banner">
+    <h1 class="sro"><?php the_title(); ?></h1>
     <div class="header__container">
-    <nav class="nav_menu">
-        <h2 class="hidden"></h2>
+    <nav class="nav_menu" aria-label="navigation principale">
+        <h2 class="sro">Navigation principale</h2>
         <a class="nav__logo" href="<?= home_url() ?>" title="<?= __hepl('Se diriger vers la page d’accueil') ?>">
             <img class="logo" src="/wp-content/themes/client/resources/img/logo.png" alt="" height="auto" width="50">
         </a>
 
         <div id="menuToggle">
-            <label for="menuCheckbox"></label>
+            <label class="sro" for="menuCheckbox">Toggle mobile menu</label>
             <input type="checkbox" id="menuCheckbox">
             <span></span>
             <span></span>

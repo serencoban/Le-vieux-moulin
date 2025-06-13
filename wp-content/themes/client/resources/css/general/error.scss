@@ -1,0 +1,9 @@
+.error-container{
+  padding: 50px;
+  .oops-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    animation: float 3s ease-in-out infinite;
+  }
+}

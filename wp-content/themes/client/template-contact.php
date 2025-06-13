@@ -4,30 +4,23 @@
 
 <div class="contact-container">
     <div class="content">
-        <!-- Section Contactez-nous -->
         <section class="contact-info">
-            <h1>Contactez-nous !</h1>
-            <p>N'hésitez pas à nous contacter via ce formulaire, nous y répondrons avec plaisir.</p>
+            <h2>Contactez-nous&nbsp;!</h2>
+            <p>N'hésitez pas à nous contacter via ce formulaire, nous y répondrons avec plaisir&nbsp;.</p>
         </section>
-
-        <!-- Section Carte -->
         <section class="map-section">
             <img src="" alt="">
         </section>
-
-        <!-- Formulaire -->
         <section class="form-section">
-            <form>
+            <form action="<?php echo admin_url('admin-post.php'); ?>" method="post">
                 <div class="form-group">
                     <label for="name">Nom et prénom*</label>
                     <input type="text" id="name" name="name" placeholder="ex: Jane Doe" required>
                 </div>
-
                 <div class="form-group">
                     <label for="email">Email*</label>
                     <input type="email" id="email" name="email" placeholder="ex: janedoe@gmail.com" required>
                 </div>
-
                 <div class="form-group">
                     <label>Objet*</label>
                     <div class="radio-group">
@@ -59,7 +52,8 @@
                     <textarea id="description" name="description" placeholder="Décrivez votre demande..." required></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Soumettre le formulaire</button>
+                <input type="hidden" name="action" value="dw_submit_contact_form">
+                <button type="submit" class="btn">Soumettre le formulaire</button>
             </form>
         </section>
     </div>
