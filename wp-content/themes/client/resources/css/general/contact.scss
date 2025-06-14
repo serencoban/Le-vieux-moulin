@@ -1,167 +1,143 @@
 @import "../settings/breakpoints";
 .contact-container {
-  max-width: 1200px;
-  margin: 48px auto;
-
+  max-width: 75rem;
+  margin: 3rem auto;
   .content {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-
+    gap: 1.875rem;
     @include max-tablet {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 2.5rem;
       grid-template-areas:
         "info form"
         "map form";
     }
-
     @include desktop {
-      gap: 50px;
+      gap: 3.125rem;
     }
-
     .contact-info {
       background: var(--blue);
-      border-radius: 20px;
-      padding: 30px 25px;
+      border-radius: 1.25rem;
+      padding: 1.875rem 1.5625rem;
       color: #2c3e50;
       overflow: hidden;
       animation: fadeInUp 0.6s ease-out;
       grid-area: info;
       h1 {
         font-weight: 700;
-        margin-bottom: 15px;
+        margin-bottom: 0.9375rem;
         z-index: 2;
       }
-
       p {
         opacity: 0.9;
         z-index: 2;
       }
     }
-
     .map-section {
       background-image: url("/wp-content/themes/client/resources/img/maps.png");
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      border-radius: 20px;
-      padding: 20px;
-      min-height: 300px;
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      min-height: 18.75rem;
       animation: fadeInUp 0.6s ease-out;
       animation-delay: 0.1s;
       grid-area: map;
-
       @include max-tablet {
-        min-height: 350px;
+        min-height: 21.875rem;
       }
-
       .map-container {
         width: 100%;
-        height: 280px;
+        height: 17.5rem;
         background: linear-gradient(45deg, #e8f5e8 0%, #c8e6c9 100%);
-        border-radius: 15px;
+        border-radius: 0.9375rem;
         overflow: hidden;
-
         @include desktop {
-          height: 320px;
+          height: 20rem;
         }
       }
     }
-
     .form-section {
       background: white;
-      border-radius: 20px;
-      padding: 30px 25px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 1.25rem;
+      padding: 1.875rem 1.5625rem;
+      box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
       animation: fadeInUp 0.6s ease-out;
       animation-delay: 0.2s;
       grid-area: form;
 
       @include max-tablet {
-        padding: 40px 35px;
+        padding: 2.5rem 2.1875rem;
       }
-
       @include desktop {
-        padding: 50px 40px;
+        padding: 3.125rem 2.5rem;
       }
-
       .form-group {
-        margin-bottom: 25px;
-
+        margin-bottom: 1.5625rem;
         label {
           display: block;
-          margin-bottom: 8px;
+          margin-bottom: 0.5rem;
           font-weight: 600;
           color: #2c3e50;
         }
-
         input,
         textarea {
           width: 100%;
-          padding: 15px 20px;
-          border: 2px solid #e9ecef;
-          border-radius: 50px;
+          padding: 0.9375rem 1.25rem;
+          border: 0.125rem solid #e9ecef;
+          border-radius: 3.125rem;
           transition: all 0.3s ease;
           background: #f8f9fa;
-
           &:focus {
             outline: none;
             border-color: #7fcdcd;
             background: white;
-            box-shadow: 0 0 0 3px rgba(127, 205, 205, 0.1);
+            box-shadow: 0 0 0 0.1875rem rgba(127, 205, 205, 0.1);
           }
-
           &::placeholder {
             color: #adb5bd;
             font-style: italic;
           }
         }
-
         textarea {
-          border-radius: 20px;
+          border-radius: 1.25rem;
           resize: vertical;
-          min-height: 120px;
+          min-height: 7.5rem;
           font-family: inherit;
         }
       }
-
       .radio-group {
         display: flex;
         flex-direction: column;
-        gap: 15px;
-
+        gap: 0.9375rem;
         @include max-tablet {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
         }
-
         @include desktop {
           grid-template-columns: repeat(3, 1fr);
         }
       }
-
       .radio-option {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 0.75rem;
         cursor: pointer;
-        padding: 10px;
-        border-radius: 15px;
+        padding: 0.625rem;
+        border-radius: 0.9375rem;
         transition: background-color 0.3s ease;
-
         &:hover {
           background-color: #f8f9fa;
         }
-
         input[type="radio"] {
-          width: 20px;
-          height: 20px;
+          width: 1.25rem;
+          height: 1.25rem;
           margin: 0;
           accent-color: #7fcdcd;
         }
-
         label {
           margin: 0;
           font-weight: 500;
@@ -172,11 +148,10 @@
     }
   }
 }
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(1.875rem);
   }
   to {
     opacity: 1;

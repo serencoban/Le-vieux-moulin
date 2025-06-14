@@ -19,13 +19,13 @@
                     </svg>
                 </h3>
                 <div class="bubbles-svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="104" viewBox="0 0 72 104" fill="none">
-                        <circle cx="36" cy="36" r="36" fill="#A9CAEF"/>
-                        <ellipse cx="24.8661" cy="17.0721" rx="11.5052" ry="7.42268" transform="rotate(-23.714 24.8661 17.0721)" fill="white"/>
-                        <ellipse cx="18.3639" cy="34.3152" rx="6.1529" ry="3.96962" transform="rotate(-23.714 18.3639 34.3152)" fill="white"/>
-                        <circle cx="18.5566" cy="87.5876" r="15.5876" fill="#A9CAEF"/>
-                        <ellipse cx="13.7359" cy="79.3921" rx="4.98161" ry="3.21394" transform="rotate(-23.714 13.7359 79.3921)" fill="white"/>
-                        <ellipse cx="10.9205" cy="86.8581" rx="2.66414" ry="1.7188" transform="rotate(-23.714 10.9205 86.8581)" fill="white"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="104" viewBox="0 0 72 104">
+                        <circle cx="36" cy="36" r="36" />
+                        <ellipse cx="24.8661" cy="17.0721" rx="11.5052" ry="7.42268" transform="rotate(-23.714 24.8661 17.0721)" />
+                        <ellipse cx="18.3639" cy="34.3152" rx="6.1529" ry="3.96962" transform="rotate(-23.714 18.3639 34.3152)"/>
+                        <circle cx="18.5566" cy="87.5876" r="15.5876" />
+                        <ellipse cx="13.7359" cy="79.3921" rx="4.98161" ry="3.21394" transform="rotate(-23.714 13.7359 79.3921)"/>
+                        <ellipse cx="10.9205" cy="86.8581" rx="2.66414" ry="1.7188" transform="rotate(-23.714 10.9205 86.8581)"/>
                     </svg>
                 </div>
                 <p class="foyer-description">
@@ -79,32 +79,32 @@
                 <div class="value-item">
                     <h4>L'éducation</h4>
                     <svg class="valeur-underline" xmlns="http://www.w3.org/2000/svg" width="125" height="12" viewBox="0 0 125 12" fill="none">
-                        <path d="M3 2.5H122" stroke="#F2D369" stroke-width="5" stroke-linecap="round"/>
-                        <path d="M19 9L114 3" stroke="#F2D369" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M3 2.5H122"/>
+                        <path d="M19 9L114 3">
                     </svg>
                     <p><?php echo esc_html(get_field('education_texte')); ?></p>
                 </div>
                 <div class="value-item">
                     <h4>La socialisation</h4>
                     <svg class="valeur-underline" xmlns="http://www.w3.org/2000/svg" width="166" height="12" viewBox="0 0 166 12" fill="none">
-                        <path d="M3 3H163" stroke="#F2D369" stroke-width="5" stroke-linecap="round"/>
-                        <path d="M24.5127 9.5L152.244 3.5" stroke="#F2D369" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M3 3H163"/>
+                        <path d="M24.5127 9.5L152.244 3.5"/>
                     </svg>
                     <p><?php echo esc_html(get_field('socialisation_texte')); ?></p>
                 </div>
                 <div class="value-item">
                     <h4>La responsabilisation</h4>
                     <svg class="valeur-underline" xmlns="http://www.w3.org/2000/svg" width="225" height="12" viewBox="0 0 225 12" fill="none">
-                        <path d="M3 3H222" stroke="#F2D369" stroke-width="5" stroke-linecap="round"/>
-                        <path d="M32.4453 9.5L207.277 3.5" stroke="#F2D369" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M3 3H222"/>
+                        <path d="M32.4453 9.5L207.277 3.5"/>
                     </svg>
                     <p><?php echo esc_html(get_field('responsable_texte')); ?></p>
                 </div>
                 <div class="value-item">
                     <h4>L'autonomie</h4>
                     <svg class="valeur-underline"  xmlns="http://www.w3.org/2000/svg" width="166" height="12" viewBox="0 0 166 12" fill="none">
-                        <path d="M3 3H163" stroke="#F2D369" stroke-width="5" stroke-linecap="round"/>
-                        <path d="M24.5127 9.5L152.244 3.5" stroke="#F2D369" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M3 3H163"/>
+                        <path d="M24.5127 9.5L152.244 3.5"/>
                     </svg>
                     <p><?php echo esc_html(get_field('autonomie_texte')); ?></p>
                 </div>
@@ -115,7 +115,7 @@
     <div class="morning-section">
         <div class="morning-content">
             <h2 class="morning-title">Comment se passe la matinée au foyer&nbsp;?</h2>
-            <p><?php echo esc_html(get_field('la_matinee')); ?></p>
+            <p><?php the_field('la_matinee'); ?></p>
         </div>
         <div class="soleil">
             <img src="/wp-content/themes/client/resources/img/soleil.png" alt="Dessin d'un soleil">
@@ -127,7 +127,7 @@
         </div>
             <div class="evening-content">
                 <h2 class="evening-title">Comment se passe la soirée au foyer&nbsp;?</h2>
-                <p><?php echo esc_html(get_field('la_soiree')); ?></p>
+                <p><?php the_field('la_soiree'); ?></p>
             </div>
     </div>
    </section>

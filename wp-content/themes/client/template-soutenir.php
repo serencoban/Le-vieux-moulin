@@ -1,6 +1,7 @@
 <?php /* Template Name: Page "Nous soutenir" */ ?>
 
 <?php get_header(); ?>
+    <div class="donation-wrapper">
     <div class="donation-background"></div>
     <section class="hero-section">
         <div>
@@ -28,6 +29,9 @@
                 <div class="qr">
                     <img src="<?= get_field('qr_code')['url']; ?>"  alt="QR code">
                     <p>Ou alors, scannez ce code QR&nbsp;!</p>
+                    <div class="donation-text">
+                        <small>*Tous dons de 40€ et plus peuvent être exonérés d'impôts ainsi que les ordres permanents mensuels&nbsp;.</small>
+                    </div>
                 </div>
             </div>
             <div class="right">
@@ -39,11 +43,9 @@
                     <a class="btn" href="<?php echo get_permalink(58); ?>">Nous contacter</a>
                 </div>
             </div>
-            <div class="donation-text">
-                <small>*Tous dons de 40€ et plus peuvent être exonérés d'impôts ainsi que les ordres permanents mensuels&nbsp;.</small>
-            </div>
         </div>
     </section>
+    </div>
     <section class="grace-a-vous">
         <div class="grace-grid">
             <h3 class="titre">
@@ -55,13 +57,13 @@
                 </span>nos enfants vivent comme les autres enfants&nbsp;!
             </h3>
             <div class="bubbles-svg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="104" viewBox="0 0 72 104" fill="none">
-                    <circle cx="36" cy="36" r="36" fill="#A9CAEF"/>
-                    <ellipse cx="24.8661" cy="17.0721" rx="11.5052" ry="7.42268" transform="rotate(-23.714 24.8661 17.0721)" fill="white"/>
-                    <ellipse cx="18.3639" cy="34.3152" rx="6.1529" ry="3.96962" transform="rotate(-23.714 18.3639 34.3152)" fill="white"/>
-                    <circle cx="18.5566" cy="87.5876" r="15.5876" fill="#A9CAEF"/>
-                    <ellipse cx="13.7359" cy="79.3921" rx="4.98161" ry="3.21394" transform="rotate(-23.714 13.7359 79.3921)" fill="white"/>
-                    <ellipse cx="10.9205" cy="86.8581" rx="2.66414" ry="1.7188" transform="rotate(-23.714 10.9205 86.8581)" fill="white"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="104" viewBox="0 0 72 104">
+                    <circle cx="36" cy="36" r="36" />
+                    <ellipse cx="24.8661" cy="17.0721" rx="11.5052" ry="7.42268" transform="rotate(-23.714 24.8661 17.0721)"/>
+                    <ellipse cx="18.3639" cy="34.3152" rx="6.1529" ry="3.96962" transform="rotate(-23.714 18.3639 34.3152)"/>
+                    <circle cx="18.5566" cy="87.5876" r="15.5876"/>
+                    <ellipse cx="13.7359" cy="79.3921" rx="4.98161" ry="3.21394" transform="rotate(-23.714 13.7359 79.3921)"/>
+                    <ellipse cx="10.9205" cy="86.8581" rx="2.66414" ry="1.7188" transform="rotate(-23.714 10.9205 86.8581)"/>
                 </svg>
             </div>
             <?php

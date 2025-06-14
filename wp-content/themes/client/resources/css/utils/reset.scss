@@ -207,3 +207,29 @@ p{
     display: none;
   }
 }
+
+.bubbles-svg {
+  svg {
+    fill: none;
+    circle {
+      fill: #A9CAEF;
+    }
+    ellipse {
+      fill: var(--white);
+    }
+  }
+}
+.underline{
+  svg,.wave-svg{
+    fill: none;
+    path{
+      stroke-linecap: round;
+      stroke-width: 3.5;
+      stroke: #A9CAEF;
+    }
+  }
+}
+
+.foyer-svg{
+
+}

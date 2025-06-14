@@ -1,7 +1,5 @@
-console.log('Bonjour !');
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. no-js → js
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js');
 

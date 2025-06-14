@@ -1,46 +1,43 @@
 @import "../settings/breakpoints";
-
 .actualites-page {
  .liste-articles {
-  margin: 0 auto 96px;
-  max-width: 1200px;
+  margin: 0 auto 6rem;
+  max-width: 75rem;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 2rem;
   animation: fadeInUp 0.8s ease-out forwards;
-  @include mobile{
-   margin-bottom: 48px;
+  @include mobile {
+   margin-bottom: 3rem;
   }
-
   @include max-desktop {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
   }
-  @include max-tablet{
+  @include max-tablet {
    grid-template-columns: repeat(2, 1fr);
   }
   .actu {
-   border-radius: 10px;
-   padding: 16px;
+   border-radius: 0.625rem;
+   padding: 1rem;
    background-color: var(--beige);
-   box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
-
-   h3{
-    margin-bottom: 10px;
+   box-shadow: 0 0.5rem 0.625rem rgba(0, 0, 0, 0.1);
+   h3 {
+    margin-bottom: 0.625rem;
    }
-   .actu-image{
+   .actu-image {
     display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
+    gap: 1rem;
+    margin-bottom: 1rem;
     img {
-     width: 150px;
+     width: 9.375rem;
      height: auto;
-     border-radius: 8px;
+     border-radius: 0.5rem;
      object-fit: cover;
     }
    }
    p {
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
    }
   }
  }

@@ -19,13 +19,13 @@ get_header(); // inclut header.php
                     <?php endif; ?>
                 </div>
                 <div class="bubbles-svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="238" height="173" viewBox="0 0 238 173" fill="none">
-                        <circle cx="162" cy="76" r="76" fill="#A9CAEF"/>
-                        <circle cx="32.5" cy="140.5" r="32.5" fill="#A9CAEF"/>
-                        <ellipse cx="156.762" cy="49.4471" rx="13.2458" ry="8.5457" transform="rotate(33.5914 156.762 49.4471)" fill="white"/>
-                        <ellipse cx="23.8435" cy="129.105" rx="7.43144" ry="4.79448" transform="rotate(33.5914 23.8435 129.105)" fill="white"/>
-                        <ellipse cx="196.473" cy="43.0142" rx="24.768" ry="15.9794" transform="rotate(33.5914 196.473 43.0142)" fill="white"/>
-                        <ellipse cx="44.317" cy="125.956" rx="13.7125" ry="8.84675" transform="rotate(33.5914 44.317 125.956)" fill="white"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="238" height="173" viewBox="0 0 238 173">
+                        <circle cx="162" cy="76" r="76"/>
+                        <circle cx="32.5" cy="140.5" r="32.5"/>
+                        <ellipse cx="156.762" cy="49.4471" rx="13.2458" ry="8.5457" transform="rotate(33.5914 156.762 49.4471)"/>
+                        <ellipse cx="23.8435" cy="129.105" rx="7.43144" ry="4.79448" transform="rotate(33.5914 23.8435 129.105)"/>
+                        <ellipse cx="196.473" cy="43.0142" rx="24.768" ry="15.9794" transform="rotate(33.5914 196.473 43.0142)"/>
+                        <ellipse cx="44.317" cy="125.956" rx="13.7125" ry="8.84675" transform="rotate(33.5914 44.317 125.956)"/>
                     </svg>
                 </div>
             </section>

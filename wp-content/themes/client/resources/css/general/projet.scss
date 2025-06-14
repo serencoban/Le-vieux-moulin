@@ -1,27 +1,27 @@
 @import "../settings/breakpoints";
 .single-projet {
-  margin: 48px auto;
-  line-height: 24px;
-  max-width: 1200px;
+  margin: 3rem auto;
+  line-height: 1.5rem;
+  max-width: 75rem;
   @include max-desktop {
-    margin: 96px auto;
+    margin: 6rem auto;
   }
   .projet-intro {
     display: flex;
     flex-wrap: wrap;
-    gap: 32px;
-    margin-bottom: 48px;
+    gap: 2rem;
+    margin-bottom: 3rem;
     flex-direction: column-reverse;
     @include max-tablet {
-      flex-direction: row; // desktop : bulle à droite
+      flex-direction: row;
       align-items: flex-start;
     }
     > div:first-child {
       flex: 1;
-      min-width: 250px;
+      min-width: 15.625rem;
       h2 {
         line-height: 1.4;
-        margin-bottom: 24px;
+        margin-bottom: 1.5rem;
       }
       .mini-desc {
         font-size: 1rem;
@@ -31,49 +31,50 @@
     .bubbles-svg {
       flex-shrink: 0;
       max-width: 100%;
-      width: 150px;
+      width: 9.375rem;
       margin: 0 auto;
       animation: float 3s ease-in-out infinite;
       svg {
         width: 100%;
         height: auto;
       }
+
       @include max-tablet {
-        width: 240px;
+        width: 15rem;
       }
       @include max-desktop {
         margin: 0;
-        width: 190px;
+        width: 11.875rem;
       }
     }
   }
 }
-  .galerie {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2rem;
+.galerie {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.625rem;
+    object-fit: cover;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+  }
+  @include max-tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      object-fit: cover;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    @include max-tablet {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      img {
-        width: calc(33.333% - 1rem);
-      }
+      width: calc(33.333% - 1rem);
     }
   }
-  .projet-description{
-    p{
-      margin-bottom: 1.5rem;
-    }
+}
+.projet-description {
+  p {
+    margin-bottom: 1.5rem;
   }
+}
 .other-project {
   font-family: var(--font-base);
   display: flex;

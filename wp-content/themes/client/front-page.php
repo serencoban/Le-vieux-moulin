@@ -5,17 +5,22 @@
         <div class="header_container">
             <h2 itemprop="name" class="main_title"><?php echo get_field('vm_title') ?></h2>
             <div class="underline" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 510 18" fill="none">
-                    <path d="M2 8.33118C10.1432 3.64392 31.8042 -2.9986 53.3024 7.92942C74.8005 18.8574 92.1863 12.7506 98.1919 8.33114C108.575 4.04564 131.966 -2.03441 142.471 7.92937C152.976 17.8932 175.96 13.5541 186.139 10.1391C193.264 5.71966 211.362 -0.708581 226.753 8.93379C242.144 18.5762 267.368 12.5497 278.056 8.33114C289.558 3.71084 315.189 -2.75758 325.693 8.33114C336.198 19.4199 358.572 14.1567 368.445 10.1391C376.181 5.18398 395.99 -1.8737 413.335 9.53644C430.68 20.9466 452.524 14.6924 461.278 10.1391C469.625 6.18839 490.655 0.777951 508 10.7417"
-                          stroke="#A9CAEF"
-                          stroke-width="3.5"
-                          stroke-linecap="round"
-                          class="draw-path"/>
+                <svg class="draw-path" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 510 18">
+                    <path d="M2 8.33118C10.1432 3.64392 31.8042 -2.9986 53.3024 7.92942C74.8005 18.8574 92.1863 12.7506 98.1919 8.33114C108.575 4.04564 131.966 -2.03441 142.471 7.92937C152.976 17.8932 175.96 13.5541 186.139 10.1391C193.264 5.71966 211.362 -0.708581 226.753 8.93379C242.144 18.5762 267.368 12.5497 278.056 8.33114C289.558 3.71084 315.189 -2.75758 325.693 8.33114C336.198 19.4199 358.572 14.1567 368.445 10.1391C376.181 5.18398 395.99 -1.8737 413.335 9.53644C430.68 20.9466 452.524 14.6924 461.278 10.1391C469.625 6.18839 490.655 0.777951 508 10.7417"/>
                 </svg>
             </div>
             <p itemprop="description"><?php echo get_field('main_description') ?></p>
             <a class="btn" href="<?php echo get_permalink(54); ?>" aria-label="Nous soutenir via un don" title="Aller vers la page nous soutenir">Nous soutenir</a>
-
+        </div>
+        <div class="bubbles-svg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="104" viewBox="0 0 72 104">
+                <circle cx="36" cy="36" r="36"/>
+                <ellipse cx="24.8661" cy="17.0721" rx="11.5052" ry="7.42268" transform="rotate(-23.714 24.8661 17.0721)"/>
+                <ellipse cx="18.3639" cy="34.3152" rx="6.1529" ry="3.96962" transform="rotate(-23.714 18.3639 34.3152)"/>
+                <circle cx="18.5566" cy="87.5876" r="15.5876"/>
+                <ellipse cx="13.7359" cy="79.3921" rx="4.98161" ry="3.21394" transform="rotate(-23.714 13.7359 79.3921)"/>
+                <ellipse cx="10.9205" cy="86.8581" rx="2.66414" ry="1.7188" transform="rotate(-23.714 10.9205 86.8581)"/>
+            </svg>
         </div>
     </section>
     <section class="maisons_container">
@@ -29,9 +34,12 @@
                 <span>Le Vieux Moulin</span>
                 <a href="<?php echo get_permalink(get_page_by_path('nos-foyers')) ?>#vm-foyer">
                 <?php
-                    $image = get_field('vm');
-                    if ($image) {
-                        echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
+                $image = get_field('vm');
+                if ($image) {
+                    echo wp_get_attachment_image($image['ID'], 'large', false, [
+                        'alt' => esc_attr($image['alt']),
+                        'class' => 'maison-img'
+                    ]);
                     }
                     ?>
                 </a>
@@ -41,10 +49,13 @@
                 <span>Edelweiss</span>
                 <a href="<?php echo get_permalink(get_page_by_path('nos-foyers'))?>#edelweiss-foyer">
                 <?php
-                        $image = get_field('edelweiss');
-                        if ($image) {
-                            echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
-                        }
+                $image = get_field('edelweiss');
+                if ($image) {
+                    echo wp_get_attachment_image($image['ID'], 'large', false, [
+                        'alt' => esc_attr($image['alt']),
+                        'class' => 'maison-img'
+                    ]);
+                }
                         ?>
                 </a>
             </div>
@@ -55,21 +66,39 @@
         <div class="accueil-cards">
             <div class="accueil-card">
                 <div class="card-header">
-                    <img src="wp-content/themes/client/resources/img/materiel.png" alt="Icone Matériel" class="icon" />
+                   <?php $icon = get_field('icon_1');
+                   if ($icon) {
+                       echo wp_get_attachment_image($icon['ID'], 'thumbnail', false, [
+                           'alt' => esc_attr($icon['alt']),
+                           'class' => 'icon'
+                       ]);
+                   } ?>
                     <h3 class="highlight-title">Matériel</h3>
                 </div>
                 <p><?php echo get_field('materiel') ?></p>
             </div>
             <div class="accueil-card">
                 <div class="card-header">
-                    <img src="wp-content/themes/client/resources/img/educatif.png" alt="Icone Educatif" class="icon" />
+                    <?php $icon = get_field('icon_2');
+                    if ($icon) {
+                        echo wp_get_attachment_image($icon['ID'], 'thumbnail', false, [
+                            'alt' => esc_attr($icon['alt']),
+                            'class' => 'icon'
+                        ]);
+                    } ?>
                     <h3 class="highlight-title">Educatif</h3>
                 </div>
                 <p><?php echo get_field('educatif') ?></p>
             </div>
             <div class="accueil-card">
                 <div class="card-header">
-                    <img src="wp-content/themes/client/resources/img/psycho.png" alt="Icone Psychologique" class="icon" />
+                    <?php $icon = get_field('icon_3');
+                    if ($icon) {
+                        echo wp_get_attachment_image($icon['ID'], 'thumbnail', false, [
+                            'alt' => esc_attr($icon['alt']),
+                            'class' => 'icon'
+                        ]);
+                    } ?>
                     <h3 class="highlight-title">Psychologique</h3>
                 </div>
                 <p><?php echo get_field('psychologique') ?></p>
@@ -104,7 +133,10 @@
                             </div>
                             <?php if ($image): ?>
                                 <figure>
-                                    <img class="project_img" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                                    <?php echo wp_get_attachment_image($image['ID'], 'large', false, [
+                                        'alt' => esc_attr($image['alt']),
+                                        'class' => 'project_img'
+                                    ]); ?>
                                 </figure>
                             <?php endif; ?>
                             <div class="voir-plus">
@@ -137,7 +169,10 @@
                 if ($recent_post->have_posts()) :
                     while ($recent_post->have_posts()) : $recent_post->the_post(); ?>
                         <div class="news_post">
-                            <h3><?php the_title(); ?></h3>
+                            <div class="date-ctn">
+                                <h3><?php the_title(); ?></h3>
+                                <span class="actu-date"><?php echo get_the_date('d/m/Y'); ?></span>
+                            </div>
                             <p><?php echo get_field('actu-description')?></p>
                         </div>
                     <?php endwhile;

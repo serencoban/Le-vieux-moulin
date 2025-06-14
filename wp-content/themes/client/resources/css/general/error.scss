@@ -1,9 +1,14 @@
-.error-container{
-  padding: 50px;
-  .oops-container{
+.error-container {
+  margin: 0 auto;
+  padding: 3.125rem;
+  max-width: 87.5rem;
+  .oops-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 6.25rem;
     animation: float 3s ease-in-out infinite;
+  }
+  .error-text {
+    padding-bottom: 2rem;
   }
 }
