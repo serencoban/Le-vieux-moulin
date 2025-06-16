@@ -10,8 +10,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     flex-direction: column-reverse;
+    .mini-desc{
+      font-weight: 600;
+    }
     @include max-tablet {
       flex-direction: row;
       align-items: flex-start;
@@ -64,7 +67,7 @@
   @include max-tablet {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: left;
     img {
       width: calc(33.333% - 1rem);
     }

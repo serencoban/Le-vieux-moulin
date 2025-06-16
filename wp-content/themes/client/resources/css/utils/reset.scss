@@ -229,7 +229,91 @@ p{
     }
   }
 }
+.moulin {
+  svg {
+    width: 18.75rem; // 300px
+    height: 18.75rem;
+  }
 
-.foyer-svg{
+  path {
+    stroke: #1d1d1b;
+    stroke-miterlimit: 10;
+    stroke-width: 0.3125rem; // 5px
+    fill: none;
+  }
 
+  ellipse,
+  circle {
+    stroke: none;
+  }
+
+  #uuid-0830fc4c-5524-46f1-a886-19f9d4fda351 path:nth-child(1) {
+    fill: #a9caec;
+  }
+
+  #uuid-0830fc4c-5524-46f1-a886-19f9d4fda351 path:nth-child(2) {
+    fill: #98d1c7;
+  }
+
+  #uuid-0830fc4c-5524-46f1-a886-19f9d4fda351 ellipse:nth-of-type(1),
+  #uuid-0830fc4c-5524-46f1-a886-19f9d4fda351 ellipse:nth-of-type(2) {
+    fill: #1d1d1b;
+  }
+
+  #uuid-0830fc4c-5524-46f1-a886-19f9d4fda351 ellipse:nth-of-type(3),
+  #uuid-0830fc4c-5524-46f1-a886-19f9d4fda351 ellipse:nth-of-type(4),
+  #uuid-0830fc4c-5524-46f1-a886-19f9d4fda351 ellipse:nth-of-type(5),
+  #uuid-0830fc4c-5524-46f1-a886-19f9d4fda351 ellipse:nth-of-type(6) {
+    fill: #fff;
+  }
+
+  #uuid-0830fc4c-5524-46f1-a886-19f9d4fda351 path:last-of-type {
+    stroke: #000;
+    stroke-linecap: round;
+    stroke-width: 0.3125rem; // 5px
+  }
+
+  #uuid-7961b3a0-38d8-496c-a583-1333ef75db81 path {
+    fill: #f2d368;
+  }
+
+  #uuid-7961b3a0-38d8-496c-a583-1333ef75db81 circle {
+    fill: #222443;
+    stroke: #1d1d1b;
+    stroke-miterlimit: 10;
+    stroke-width: 0.3125rem; // 5px
+  }
+}
+.wave-svg{
+  fill: none;
+  path{
+    stroke:#A9CAEF;
+    stroke-width:3.5;
+    stroke-linecap:round;
+  }
+}
+.arrow-icon{
+  fill: none;
+  path{
+    fill:var(--dark-blue);
+  }
+}
+.star-svg{
+  svg{
+    fill: none;
+    path{
+      fill:var(--yellow);
+    }
+    ellipse{
+      fill: var(--white);
+    }
+  }
+}
+.surlignement{
+  fill: none;
+  path{
+    stroke: var(--yellow);
+    stroke-linecap: round;
+    stroke-width: 5;
+  }
 }

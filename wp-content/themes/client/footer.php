@@ -8,6 +8,7 @@
             <p>063 60 22 37</p>
             <p><a href="mailto:srglevieuxmoulin@levm.be">srglevieuxmoulin@levm.be</a></p>
             <p>Directeur : SCHMIT Jean-François</p>
+            <p>Suivez-nous sur <a class="facebook" href="#" title="Aller vers notre page Facebook" target="_blank">Facebook</a></p>
         </div>
 
         <div class="footer-section">
@@ -25,16 +26,16 @@
         <div class="footer-section">
             <h3>Nous soutenir</h3>
             <ul>
-                <li><a href="<?php echo site_url('/faire-un-don'); ?>">Faire un don</a></li>
-                <li><a href="<?php echo site_url('/benevolats'); ?>">Bénévolats</a></li>
-                <li><a href="<?php echo site_url('/nous-contacter'); ?>">Partenaires</a></li>
+                <li><a href="<?php echo site_url('/nous-soutenir'); ?>">Faire un don</a></li>
+                <li><a href="<?php echo site_url('/nous-soutenir'); ?>">Bénévolats</a></li>
+                <li><a href="<?php echo site_url('/nous-soutenir'); ?>">Partenaires</a></li>
             </ul>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>2025 Le Vieux Moulin. Tous droits réservés.</p>
-        <p>Créé par Seren Coban | <a href="<?php echo site_url('/conditions-generales'); ?>">Conditions générales</a></p>
+        <p>©2025 ASBL Le Vieux Moulin. Tous droits réservés.</p>
+        <p>Créé par <a href="https://cobanseren.fr">Seren Coban</a> | <a href="<?php echo site_url('/mentions-legales'); ?>">Mentions légales</a></p>
     </div>
 </footer>
 

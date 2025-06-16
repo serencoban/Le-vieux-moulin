@@ -1,8 +1,8 @@
 <?php
 get_header(); // inclut header.php
 ?>
+<div class="single-projet" itemscope itemtype="https://schema.org/Project">
 
-<div class="single-projet">
     <?php
     if ( have_posts() ) :
         while ( have_posts() ) : the_post();
@@ -13,13 +13,13 @@ get_header(); // inclut header.php
             ?>
             <section class="projet-intro">
                 <div>
-                    <h2><?php the_title(); ?></h2>
+                    <h2 itemprop="name"><?php the_title(); ?></h2>
                     <?php if ($mini_desc): ?>
-                        <p class="mini-desc"><?php echo esc_html($mini_desc); ?></p>
+                        <p itemprop="description" class="mini-desc"><?php echo esc_html($mini_desc); ?></p>
                     <?php endif; ?>
                 </div>
                 <div class="bubbles-svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="238" height="173" viewBox="0 0 238 173">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="238" height="173" viewBox="0 0 238 173" aria-hidden="true" focusable="false">
                         <circle cx="162" cy="76" r="76"/>
                         <circle cx="32.5" cy="140.5" r="32.5"/>
                         <ellipse cx="156.762" cy="49.4471" rx="13.2458" ry="8.5457" transform="rotate(33.5914 156.762 49.4471)"/>
@@ -32,7 +32,7 @@ get_header(); // inclut header.php
 
             <section class="projet-contenu">
                 <?php if ($description): ?>
-                    <div class="projet-description">
+                    <div itemprop="description" class="projet-description">
                         <?php echo wp_kses_post($description); ?>
                     </div>
                 <?php endif; ?>
@@ -43,7 +43,8 @@ get_header(); // inclut header.php
                             <?php if (isset($image['url'])): ?>
                                 <img
                                         src="<?php echo esc_url($image['url']); ?>"
-                                        alt="<?php echo esc_attr($image['alt'] ?? ''); ?>">
+                                        alt="<?php echo esc_attr($image['alt'] ?? ''); ?>"
+                                        itemprop="image">
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </div>
@@ -59,16 +60,16 @@ get_header(); // inclut header.php
     $prev_post = get_previous_post();
     $next_post = get_next_post();
     if ($prev_post || $next_post): ?>
-        <div class="other-project" itemprop="isPartOf" itemscope itemtype="https://schema.org/CollectionPage">
+        <div class="other-project">
             <h3><?php _e('Other projects', 'portfolio'); ?></h3>
             <div class="other-project-links">
                 <?php if ($prev_post): ?>
-                    <a class="other-project-link btn" href="<?php echo get_permalink($prev_post); ?>" itemprop="relatedLink" title="Aller vers le projet <?php echo get_the_title($prev_post); ?>">
+                    <a class="other-project-link btn" href="<?php echo get_permalink($prev_post); ?>" title="Aller vers le projet <?php echo get_the_title($prev_post); ?>">
                         ← <?php echo get_the_title($prev_post); ?>
                     </a>
                 <?php endif; ?>
                 <?php if ($next_post): ?>
-                    <a class="other-project-link btn" href="<?php echo get_permalink($next_post); ?>" itemprop="relatedLink" title="Aller vers le projet <?php echo get_the_title($next_post); ?>">
+                    <a class="other-project-link btn" href="<?php echo get_permalink($next_post); ?>" title="Aller vers le projet <?php echo get_the_title($next_post); ?>">
                         <?php echo get_the_title($next_post); ?> →
                     </a>
                 <?php endif; ?>

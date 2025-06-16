@@ -1,0 +1,19 @@
+@import "../settings/breakpoints";
+
+.mentions-container{
+  margin: 50px auto;
+  font-family: var(--font-base);
+  max-width: 1400px;
+  .mentions-bubbles{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    .bubbles-svg{
+      animation: float 3s ease-in-out infinite;
+    }
+  }
+  .mentions-ctn{
+    margin-bottom: 50px;
+  }
+}

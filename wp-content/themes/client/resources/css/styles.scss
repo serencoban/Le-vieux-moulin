@@ -1,5 +1,4 @@
 @use 'utils/reset';
-@use 'utils/helper';
 
 @use 'settings/colors';
 @use 'settings/fonts';
@@ -14,4 +13,4 @@
 @use 'general/projets';
 @use 'general/projet';
 @use 'general/error';
-
+@use 'general/mentions';

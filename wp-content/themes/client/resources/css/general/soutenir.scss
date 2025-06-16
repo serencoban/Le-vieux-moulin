@@ -113,7 +113,7 @@
 }
 .grace-a-vous {
   max-width: 87.5rem;
-  margin: 3rem auto;
+  margin: 4rem auto;
   @include max-desktop {
     margin: 8.75rem auto 6rem;
   }
@@ -192,6 +192,21 @@
       @include mobile {
         top: 5.25rem;
         right: -0.4375rem;
+      }
+    }
+    .star-svg{
+      position: absolute;
+      pointer-events: none;
+      bottom: -5rem;
+      left: -5rem;
+      animation: float 3s ease-in-out infinite;
+      @include tablet {
+        bottom: -5rem;
+        left: -5rem;
+      }
+      @include mobile {
+        bottom: -5rem;
+        left: -5rem;
       }
     }
   }

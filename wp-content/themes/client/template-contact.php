@@ -5,27 +5,35 @@
 <div class="contact-container">
     <div class="content">
         <section class="contact-info">
-            <h2>Contactez-nous&nbsp;!</h2>
-            <p>N'hésitez pas à nous contacter via ce formulaire, nous y répondrons avec plaisir&nbsp;.</p>
+            <h2 role="heading" id="form-title">Contactez-nous&nbsp;!</h2>
+            <p>N’hésitez pas à nous contacter via ce formulaire. Que vous soyez futur bénévole, partenaire, famille ou simplement curieux, nous prendrons le temps de vous répondre avec attention et bienveillance.</p>
         </section>
-        <section class="map-section">
-            <img src="" alt="">
-        </section>
+        <div class="map-section"></div>
         <section class="form-section">
-            <form action="<?php echo admin_url('admin-post.php'); ?>" method="post">
+            <?php if (!empty($_SESSION['contact_form_success'])) : ?>
+                <p class="success-message" role="alert">
+                    <?php
+                    echo $_SESSION['contact_form_success'];
+                    unset($_SESSION['contact_form_success']);
+                    ?>
+                </p>
+            <?php else : ?>
+                <h3 class="sro">Formulaire de contact</h3>
+                <p class="required">N’oubliez pas de remplir les champs avec une étoile (*), ils sont indispensables.</p>
+                <form action="<?php echo admin_url('admin-post.php'); ?>" method="post">
                 <div class="form-group">
                     <label for="name">Nom et prénom*</label>
-                    <input type="text" id="name" name="name" placeholder="ex: Jane Doe" required>
+                    <input type="text" id="name" name="name" placeholder="ex: Harry Potter" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email*</label>
-                    <input type="email" id="email" name="email" placeholder="ex: janedoe@gmail.com" required>
+                    <input type="email" id="email" name="email" placeholder="ex: harrypotdefleur@gmail.com" required>
                 </div>
-                <div class="form-group">
-                    <label>Objet*</label>
+                <fieldset class="form-group">
+                    <legend>Objet*</legend>
                     <div class="radio-group">
                         <div class="radio-option">
-                            <input type="radio" id="benevole" name="objet" value="benevole" required>
+                            <input type="radio" id="benevole" name="objet" value="benevole" required  >
                             <label for="benevole">Bénévole</label>
                         </div>
                         <div class="radio-option">
@@ -45,7 +53,7 @@
                             <label for="autres">Autres</label>
                         </div>
                     </div>
-                </div>
+                </fieldset>
 
                 <div class="form-group">
                     <label for="description">Description*</label>
@@ -55,6 +63,7 @@
                 <input type="hidden" name="action" value="dw_submit_contact_form">
                 <button type="submit" class="btn">Soumettre le formulaire</button>
             </form>
+<?php endif; ?>
         </section>
     </div>
 </div>

@@ -5,7 +5,7 @@
         <div class="oops-container">
         <h2 class="error-title">Erreur 404</h2>
         <div class="bubbles-svg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="104" viewBox="0 0 72 104" fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="104" viewBox="0 0 72 104" fill="none" aria-hidden="true" focusable="false">
                 <circle cx="36" cy="36" r="36" fill="#A9CAEF"/>
                 <ellipse cx="24.8661" cy="17.0721" rx="11.5052" ry="7.42268" transform="rotate(-23.714 24.8661 17.0721)" fill="white"/>
                 <ellipse cx="18.3639" cy="34.3152" rx="6.1529" ry="3.96962" transform="rotate(-23.714 18.3639 34.3152)" fill="white"/>

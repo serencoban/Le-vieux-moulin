@@ -143,10 +143,7 @@ section {
 .valeur-container {
   margin: 0 -1rem 3rem;
   padding: 1.5rem 1.25rem;
-  background-image: url('/wp-content/themes/client/resources/img/bubble-bcgd.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: var(--beige);
   line-height: 1.25rem;
   @include max-desktop {
     padding: 5rem 3.125rem;
